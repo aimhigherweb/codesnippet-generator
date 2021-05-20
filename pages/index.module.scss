@@ -1,0 +1,35 @@
+.types {
+	padding: 0;
+	border: none;
+
+	legend {
+		margin-bottom: 10px;
+		font-weight: 700;
+		text-align: center;
+	}
+}
+
+.items {
+	display: flex;
+
+	input[type='radio'] {
+		position: absolute;
+		opacity: 0;
+
+		&:checked {
+			& + label {
+				border-color: var.$primary;
+				background: var.$primary;
+			}
+		}
+	}
+
+	label {
+		padding: 5px 10px;
+		border: 2px solid transparent;
+
+		&:hover {
+			border-color: var.$primary;
+		}
+	}
+}

@@ -53,7 +53,7 @@ module.exports = {
 			'no-extra-semicolons': true,
 			'no-duplicate-selectors': true,
 			'no-duplicate-at-import-rules': true,
-			'no-descending-specificity': true,
+			'no-descending-specificity': false,
 			'comment-no-empty': true,
 			'selector-type-no-unknown': true,
 			'selector-pseudo-element-no-unknown': true,

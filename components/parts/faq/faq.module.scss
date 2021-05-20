@@ -1,0 +1,45 @@
+.faqs {
+
+}
+
+.details {
+	background: var.$white;
+
+	&[open] {
+		.summary {
+			&:after {
+				transform: rotate(-90deg);
+			}
+
+			& + div {
+				display: block;
+			}
+		}
+	}
+}
+
+.summary {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	padding: 20px;
+	color: var.$primary;
+	list-style: none;
+
+	&:after {
+		content: '';
+		width: 0;
+		height: 0;
+		border-width: 20px 20px 0;
+		border-style: solid;
+		border-color: var.$primary transparent transparent transparent;
+	}
+
+	& + div {
+		display: none;
+	}
+}
+
+.content {
+	padding: 20px 50px;
+}

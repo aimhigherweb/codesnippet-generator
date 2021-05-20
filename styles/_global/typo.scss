@@ -99,3 +99,21 @@ nav {
 		display: block;
 	}
 }
+
+button  {
+	padding: 10px;
+	border: 2px solid var.$secondary;
+	border-radius: 0;
+	background: var.$secondary;
+	color: var.$white;
+	font-weight: 600;
+
+	&:hover {
+		background: var.$white;
+		color: var.$secondary;
+	}
+}
+
+pre, code {
+	font-family: 'Source Code Pro', monospace;
+}

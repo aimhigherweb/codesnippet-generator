@@ -7,7 +7,7 @@ const Layout = ({
 	children
 }) => (
 	<Fragment>
-		<header>
+		<header className={styles.header}>
 			<h1>Code Generator</h1>
 		</header>
 		<main className={styles.main}>

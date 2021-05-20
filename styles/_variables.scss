@@ -1,11 +1,13 @@
 // Colours
-$primary: #005f7f;
-
-$secondary: #00263d;
+$primary: #0093c9;
+$secondary: #172f57;
+$highlight: #42beee;
 
 $neutral: #000000;
 $white: #ffffff;
-$grey_light: #ecf0f2;
+$grey_light: #d1d3d4;
+$grey_dark: #414042;
+$grey_mid: #6d6e71;
 
 $gradient: linear-gradient(138.17deg, $primary 18.9%, $secondary 82.35%);
 
@@ -20,5 +22,5 @@ $fail: $red;
 $error: $fail;
 
 // Typography
-$font_main: Spartan, Arial, sans-serif;
-$font_headings: Spartan, Arial, sans-serif;
+$font_main: Montserrat, Arial, sans-serif;
+$font_headings: Montserrat, Arial, sans-serif;

@@ -1,5 +1,62 @@
 @font-face {
-	font-family: 'Spartan';
-	font-display: swap;
-	src: url('../src/fonts/Spartan-VariableFont_wght.ttf') format('truetype');
+	font-family: Montserrat;
+	font-style: normal;
+	font-weight: 600;
+	src: url('../src/fonts/Montserrat-SemiBold.ttf') format('truetype');
+}
+
+@font-face {
+	font-family: Montserrat;
+	font-style: italic;
+	font-weight: 500;
+	src: url('../src/fonts/Montserrat-MediumItalic.ttf') format('truetype');
+}
+
+@font-face {
+	font-family: Montserrat;
+	font-style: normal;
+	font-weight: 500;
+	src: url('../src/fonts/Montserrat-Medium.ttf') format('truetype');
+}
+
+@font-face {
+	font-family: Montserrat;
+	font-style: italic;
+	font-weight: 600;
+	src: url('../src/fonts/Montserrat-SemiBoldItalic.ttf') format('truetype');
+}
+
+@font-face {
+	font-family: Montserrat;
+	font-style: normal;
+	font-weight: 400;
+	src: url('../src/fonts/Montserrat-Regular.ttf') format('truetype');
+}
+
+@font-face {
+	font-family: Montserrat;
+	font-style: italic;
+	font-weight: 400;
+	src: url('../src/fonts/Montserrat-Italic.ttf') format('truetype');
+}
+
+@font-face {
+	font-family: Montserrat;
+	font-style: normal;
+	font-weight: 700;
+	src: url('../src/fonts/Montserrat-Bold.ttf') format('truetype');
+}
+
+@font-face {
+	font-family: Montserrat;
+	font-style: italic;
+	font-weight: 700;
+	src: url('../src/fonts/Montserrat-BoldItalic.ttf') format('truetype');
+}
+
+@font-face {
+	font-family: 'Source Code Pro';
+	font-style: normal;
+	font-weight: 400;
+	src: url('../src/fonts/SourceCodePro-Regular.ttf') format('truetype');
 }

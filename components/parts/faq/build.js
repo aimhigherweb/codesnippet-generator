@@ -1,11 +1,17 @@
 import { useState, Fragment, useEffect } from "react";
 
-import Modal from '../modal';
+import Builder from '../builder';
 
-const FAQ = ({ type }) => {
+import { addData } from '../../../utils/data';
+
+import styles from './faq.module.scss';
+
+const FAQs = ({ type }) => {
 	const [faqs, setFaqs] = useState([]);
-	const [modal, openModal] = useState(false);
-
+	const details = {
+		type,
+		setHook: setFaqs
+	};
 	const addFaq = () => {
 		const newFaqs = [
 			...faqs,
@@ -14,33 +20,59 @@ const FAQ = ({ type }) => {
 				content: `FAQ Content`
 			}
 		];
-		window.localStorage.setItem(`contentData`, JSON.stringify(newFaqs));
+		addData(newFaqs);
 		setFaqs(newFaqs);
 	};
 
-	useEffect(() => {
-		if (window && window.localStorage.getItem(`contentData`)) {
-			setFaqs(JSON.parse(window.localStorage.getItem(`contentData`)));
-		}
-	}, []);
-
 	return (
-		<Fragment>
-			<div>
+		<Builder {...details}>
+			<div className={styles.faqs}>
 				{faqs.map((faq, i) => (
-					<details key={i} open={true}>
-						<summary contentEditable={true}>{faq.summary}</summary>
-						<div contentEditable={true}>
-							{faq.content}
-						</div>
-					</details>
+					<FAQ
+						key={i}
+						{...{
+							...faq,
+							i,
+							data: faqs,
+							setData: setFaqs
+						}}
+					/>
 				))}
 				<button onClick={() => addFaq()}>Add FAQ</button>
 			</div>
-			<button onClick={() => openModal(!modal)}>Generate Code</button>
-			{modal && <Modal {...{ type }} />}
-		</Fragment>
+		</Builder>
 	);
 };
 
-export default FAQ;
+const FAQ = ({
+	summary, content, setData, data, i
+}) => {
+	const [open, setOpen] = useState(true);
+	const changeSummary = (newSummary) => {
+		const faqs = data;
+
+		faqs[i].summary = newSummary?.target?.innerHTML;
+
+		setData(faqs);
+		addData(faqs);
+	};
+
+	return (
+		<div className={styles.details} open={open}>
+			<div
+				className={styles.summary}
+				contentEditable={true}
+				onClick={() => setOpen(!open)}
+				onBlur={(e) => { changeSummary(e); }}
+				dangerouslySetInnerHTML={{ __html: summary }}
+			/>
+			<div
+				className={styles.content}
+				contentEditable={true}
+				dangerouslySetInnerHTML={{ __html: content }}
+			/>
+		</div>
+	);
+};
+
+export default FAQs;

@@ -4,19 +4,21 @@ import {
 } from 'react';
 
 import Layout from '../components/layout';
-
 import Generator from '../components/parts/generator';
 
 import types from '../_data/types';
 
+import styles from './index.module.scss';
+
 const IndexPage = () => {
 	const defaultType = `faq`;
 	const [type, setType] = useState(defaultType);
+
 	return (
 		<Layout>
-			<fieldset>
+			<fieldset className={styles.types}>
 				<legend>Select Code Type</legend>
-				<div>
+				<div className={styles.items}>
 					{types.map((type) => (
 						<Fragment key={type.id}>
 							<input
@@ -35,6 +37,7 @@ const IndexPage = () => {
 					))}
 				</div>
 			</fieldset>
+
 			<Generator {...{ type }} />
 		</Layout>
 	);

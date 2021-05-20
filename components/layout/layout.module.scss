@@ -1,3 +1,16 @@
 .main {
+	display: grid;
+	grid-gap: 20px;
+	grid-template-columns: 1fr auto;
+	align-items: center;
+	padding: 20px 50px;
+	justify-items: start;
+}
 
+.header {
+	padding: 20px 50px;
+
+	h1 {
+		margin: 0;
+	}
 }

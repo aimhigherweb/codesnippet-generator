@@ -7,8 +7,8 @@ const FAQ = ({ data }) => {
 		<Fragment>
 			{faqs.map((faq, i) => (
 				<details key={i}>
-					<summary>{faq.summary}</summary>
-					<div>
+					<summary data-attribute="summary">{faq.summary}</summary>
+					<div data-attribute="content">
 						{faq.content}
 					</div>
 				</details>

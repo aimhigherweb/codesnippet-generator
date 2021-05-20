@@ -1,21 +1,10 @@
-import { renderToStaticMarkup } from "react-dom/server";
-import FAQCode from '../faq/code';
+import styles from './modal.module.scss';
 
-const Modal = ({ type }) => {
-	const data = window?.localStorage?.getItem('contentData')
-	let Code;
-
-	if (type === `faq`) {
-		Code = FAQCode;
-	}
-
-	return (
-		<div>
-			<pre>
-				{renderToStaticMarkup(<Code data={JSON.parse(data)} />)}
-			</pre>
-		</div>
-	);
-};
+const Modal = ({ children, closeModal }) => (
+	<div className={styles.modal}>
+		<button onClick={() => closeModal(false)}>Close Modal</button>
+		{children}
+	</div>
+);
 
 export default Modal;
