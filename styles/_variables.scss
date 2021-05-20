@@ -1,0 +1,24 @@
+// Colours
+$primary: #005f7f;
+
+$secondary: #00263d;
+
+$neutral: #000000;
+$white: #ffffff;
+$grey_light: #ecf0f2;
+
+$gradient: linear-gradient(138.17deg, $primary 18.9%, $secondary 82.35%);
+
+$green: #64ad66;
+$red: #e53f51;
+$orange: #ff8c00;
+
+$good: $green;
+$success: $good;
+$warning: $orange;
+$fail: $red;
+$error: $fail;
+
+// Typography
+$font_main: Spartan, Arial, sans-serif;
+$font_headings: Spartan, Arial, sans-serif;
