@@ -1,7 +1,18 @@
 .code {
+	display: block;
 	width: 100%;
+	max-height: calc(60vh - 80px);
+	margin-top: 0;
 	padding: 20px;
+	overflow-y: auto;
 	background: var.$grey_dark;
 	color: var.$white;
 	white-space: pre-wrap;
+}
+
+.copy {
+	position: absolute;
+	top: 10px;
+	left: 10px;
+	order: -1;
 }

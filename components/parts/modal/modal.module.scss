@@ -1,6 +1,7 @@
 .modal {
 	display: flex;
 	position: fixed;
+	z-index: 100;
 	top: 50%;
 	left: 50%;
 	flex-wrap: wrap;
@@ -8,7 +9,7 @@
 	width: 80vw;
 	max-width: 600px;
 	max-height: 60vh;
-	padding: 20px;
+	padding: 60px 20px 20px;
 	transform: translateX(-50%) translateY(-50%);
 
 	&:before {
@@ -35,4 +36,10 @@
 		border: 2px solid var.$primary;
 		background: var.$white;
 	}
+}
+
+.close {
+	position: absolute;
+	top: 10px;
+	right: 10px;
 }

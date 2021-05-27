@@ -1,0 +1,35 @@
+.edit {
+	position: absolute;
+	right: 0;
+	opacity: 0;
+}
+
+.details {
+	width: 100%;
+	max-height: calc(60vh - 80px);
+	overflow-y: auto;
+	composes: details from './single/faq.module.scss';
+}
+
+.summary {
+	composes: summary from './single/faq.module.scss';
+	padding: 0;
+
+	&:after {
+		content: normal;
+	}
+}
+
+.content {
+	composes: content from './single/faq.module.scss';
+}
+
+.faqs {
+	position: relative;
+
+	&:hover, &:focus, &.focus-within {
+		.edit {
+			opacity: 1;
+		}
+	}
+}

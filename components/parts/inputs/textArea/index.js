@@ -20,44 +20,44 @@ const TextArea = ({
 
 	return (
 		<div className={styles.editor}>
-			<button className={styles.edit} onClick={() => toggleToolbar(!toolbar)}>Edit</button>
-		<SunEditor
-			hideToolbar={!toolbar}
-			ref={editor}
-			getSunEditorInstance={getSunEditorInstance}
-			defaultValue={value}
-			onBlur={onBlur}
-			onChange={(e, editorContents) => onChange(editorContents)}
-			setOptions={{
-				buttonList: [[
-					"undo", 
-					"redo", 
-					"formatBlock", 
-					"bold",
-					"underline",
-					"italic",
-					"fontColor", 
-					"horizontalRule", 
-					"list", 
-					"link", 
-					"image"
-				]],
-				colorList: [
-					[
-						'#0093c9', 
-						'#172f57', 
-						'#42beee', 
-						'#000000', 
-						'#ffffff', 
-						'#d1d3d4', 
-						`#414042`, 
-						'#6d6e71'
+			{props.hideToolbar && <button className={styles.edit} onClick={() => toggleToolbar(!toolbar)}>Edit</button>}
+			<SunEditor
+				hideToolbar={!toolbar}
+				ref={editor}
+				getSunEditorInstance={getSunEditorInstance}
+				defaultValue={value}
+				onBlur={onBlur}
+				onChange={(e) => onChange(e)}
+				setOptions={{
+					buttonList: [[
+						"undo", 
+						"redo", 
+						"formatBlock", 
+						"bold",
+						"underline",
+						"italic",
+						"fontColor", 
+						"horizontalRule", 
+						"list", 
+						"link", 
+						"image"
+					]],
+					colorList: [
+						[
+							'#0093c9', 
+							'#172f57', 
+							'#42beee', 
+							'#000000', 
+							'#ffffff', 
+							'#d1d3d4', 
+							`#414042`, 
+							'#6d6e71'
+						],
 					],
-				],
-				formats: ["p", "h2", "h3", "h4"],
-			  }}
-			{...props}
-		/>
+					formats: ["p", "h2", "h3", "h4"],
+				}}
+				{...props}
+			/>
 		</div>
 	);
 };

@@ -1,5 +1,6 @@
 import { renderToStaticMarkup } from "react-dom/server";
-import FAQCode from '../faq/code';
+import { useRef } from "react";
+import FAQCode from '../blocks/faq/code';
 
 import Modal from '../modal';
 
@@ -8,6 +9,7 @@ import { getData } from '../../../utils/data';
 import styles from './codeGenerator.module.scss';
 
 const CodeGenerator = ({ type, ...modalProps }) => {
+	const ref = useRef();
 	const data = getData();
 	let Code;
 
@@ -15,11 +17,19 @@ const CodeGenerator = ({ type, ...modalProps }) => {
 		Code = FAQCode;
 	}
 
+	const content = renderToStaticMarkup(<Code {...{ data }} />)
+		.replace(
+			RegExp(process.env.NEXT_PUBLIC_GENERATOR_URL, `g`),
+			process.env.NEXT_PUBLIC_WEBSITE_URL
+		);
+
 	return (
 		<Modal {...modalProps}>
-			<pre className={styles.code}>
-				{renderToStaticMarkup(<Code {...{ data }} />)}
-			</pre>
+			<div>
+				<pre className={styles.code} ref={ref}>
+					{content}
+				</pre>
+			</div>
 		</Modal>
 	);
 };

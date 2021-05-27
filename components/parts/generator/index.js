@@ -1,12 +1,13 @@
-import { Fragment } from "react";
-import { renderToStaticMarkup } from "react-dom/server";
-import FAQ from '../faq/build';
+import FAQ from '../blocks/faq/build';
+import FlexiTiles from '../blocks/flexTiles/build';
 
 const Generator = ({ type }) => {
 	let Builder;
 
 	if (type === `faq`) {
 		Builder = FAQ;
+	} else if (type === `flexi`) {
+		Builder = FlexiTiles;
 	}
 
 	return (

@@ -21,14 +21,14 @@ const Text = ({
 
 	return (
 		<div className={`${styles.editor} ${className}`}>
-			<button className={styles.edit} onClick={() => toggleToolbar(!toolbar)}>Edit</button>
+			{props.hideToolbar && <button className={styles.edit} onClick={() => toggleToolbar(!toolbar)}>Edit</button>}
 			<SunEditor
 				hideToolbar={!toolbar}
 				ref={editor}
 				getSunEditorInstance={getSunEditorInstance}
 				defaultValue={value}
 				onBlur={onBlur}
-				onChange={(e, editorContents) => onChange(editorContents)}
+				onChange={(e) => onChange(e)}
 				setOptions={{
 					buttonList: [[
 						"bold",
