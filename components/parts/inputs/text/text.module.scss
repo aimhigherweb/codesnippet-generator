@@ -1,0 +1,16 @@
+.edit {
+	position: absolute;
+	z-index: 50;
+	right: 0;
+	opacity: 0;
+}
+
+.editor {
+	position: relative;
+
+	&:hover, &:focus, &.focus-within {
+		.edit {
+			opacity: 1;
+		}
+	}
+}

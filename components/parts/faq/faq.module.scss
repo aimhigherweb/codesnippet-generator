@@ -3,6 +3,7 @@
 }
 
 .details {
+	border: none;
 	background: var.$white;
 
 	&[open] {
@@ -23,6 +24,7 @@
 	align-items: center;
 	justify-content: space-between;
 	padding: 20px;
+	border: none;
 	color: var.$primary;
 	list-style: none;
 
@@ -34,12 +36,9 @@
 		border-style: solid;
 		border-color: var.$primary transparent transparent transparent;
 	}
-
-	& + div {
-		display: none;
-	}
 }
 
 .content {
 	padding: 20px 50px;
+	border: none;
 }

@@ -1,0 +1,33 @@
+body {
+	.sun-editor {
+		border: none;
+		outline-width: 0;
+		background-color: inherit;
+		color: inherit;
+		font-family: inherit;
+		font-size: inherit;
+
+		&:focus {
+			outline-width: 3px;
+		}
+
+		* {
+			outline-width: 0;
+		}
+
+		.se-toolbar {
+			outline: none;
+		}
+
+		.se-navigation, .se-resizing-bar {
+			display: none;
+		}
+
+		.sun-editor-editable {
+			background-color: inherit;
+			color: inherit;
+			font-family: inherit;
+			font-size: inherit;
+		}
+	}
+}

@@ -1,0 +1,7 @@
+.edit {
+	composes: edit from '../text/text.module.scss';
+}
+
+.editor {
+	composes: editor from '../text/text.module.scss';
+}
