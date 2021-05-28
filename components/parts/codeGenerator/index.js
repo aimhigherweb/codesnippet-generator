@@ -10,7 +10,7 @@ import styles from './codeGenerator.module.scss';
 
 const CodeGenerator = ({ type, ...modalProps }) => {
 	const ref = useRef();
-	const data = getData();
+	const data = getData(type);
 	let Code;
 
 	if (type === `faq`) {

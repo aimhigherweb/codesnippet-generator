@@ -1,7 +1,7 @@
 import {
 	useState
 } from "react";
-import FAQ from './single';
+import Tile from './single';
 import Text from '../../inputs/text';
 import TextArea from '../../inputs/textArea';
 
@@ -9,44 +9,44 @@ import { addData } from '../../../../utils/data';
 
 import Modal from '../../modal';
 
-import styles from './faqs.module.scss';
+import styles from './tiles.module.scss';
 
 const EditFAQ = ({
-	summary, content, setData, data, i, type
+	heading, content, setData, data, i, type
 }) => {
 	const [modal, openModal] = useState(false);
-	const [summaryValue, setSummary] = useState(summary);
+	const [headingValue, setHeading] = useState(heading);
 	const [contentValue, setContent] = useState(content);
-	const changeSummary = (e, editorContents) => {
-		const faqs = data;
-		faqs[i].summary = editorContents;
-		setData(faqs);
-		addData(faqs, type);
+	const changeHeading = (e, editorContents) => {
+		const tiles = data;
+		tiles[i].summary = editorContents;
+		setData(tiles);
+		addData(tiles, type);
 	};
 	const changeContent = (e, editorContents) => {
-		const faqs = data;
-		faqs[i].content = editorContents;
-		setData(faqs);
-		addData(faqs, type);
+		const tiles = data;
+		tiles[i].content = editorContents;
+		setData(tiles);
+		addData(tiles, type);
 	};
 
 	return (
-		<div className={styles.faqs}>
+		<div className={styles.tile}>
 			<button
 				className={styles.edit}
 				onClick={() => openModal(!modal)}
 			>
 					Edit
 			</button>
-			<FAQ {...{ summary: summaryValue, content: contentValue }} />
+			<Tile {...{ heading: headingValue, content: contentValue }} />
 			{modal
 				&& <Modal closeModal={openModal}>
-					<div className={`${styles.details} faq_details`}>
+					<div className={`${styles.wrapper}`}>
 						<Text
-							className={`${styles.summary} faq_summary`}
-							value={summaryValue}
-							onBlur={changeSummary}
-							onChange={setSummary}
+							className={`${styles.heading} `}
+							value={headingValue}
+							onBlur={changeHeading}
+							onChange={setHeading}
 							hideToolbar={false}
 						/>
 						<TextArea

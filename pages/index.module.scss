@@ -12,7 +12,7 @@
 .items {
 	display: flex;
 
-	input[type='radio'] {
+	input[type='radio'], input[type='checkbox'] {
 		position: absolute;
 		opacity: 0;
 

@@ -22,7 +22,7 @@ const Builder = ({ type, setHook, children }) => {
 	return (
 		<Fragment>
 			<div className={styles.controls}>
-				<button onClick={() => clear()}>Clear Data</button>
+				<button onClick={() => clear(type)}>Clear Data</button>
 				<button onClick={() => openModal(!modal)}>Generate Code</button>
 				<button onClick={() => openPaste(!paste)}>Paste Code</button>
 			</div>

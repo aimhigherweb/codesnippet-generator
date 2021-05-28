@@ -11,8 +11,13 @@ import types from '../_data/types';
 import styles from './index.module.scss';
 
 const IndexPage = () => {
-	const defaultType = `faq`;
+	const defaultType = (typeof window !== `undefined` && window.localStorage.getItem(`contentType`)) ? window.localStorage.getItem(`contentType`) : `faq`;
 	const [type, setType] = useState(defaultType);
+	const switchType = (type) => {
+		setType(type);
+
+		window.localStorage.setItem(`contentType`, type);
+	};
 
 	return (
 		<Layout>
@@ -26,7 +31,7 @@ const IndexPage = () => {
 								name="code_type"
 								type="radio"
 								defaultChecked={type.id === defaultType}
-								onChange={() => setType(type.id)}
+								onChange={() => switchType(type.id)}
 							/>
 							<label
 								htmlFor={type.id}

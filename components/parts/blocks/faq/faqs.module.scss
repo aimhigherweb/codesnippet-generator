@@ -1,18 +1,19 @@
 .edit {
 	position: absolute;
+	z-index: 50;
 	right: 0;
 	opacity: 0;
 }
 
 .details {
 	width: 100%;
-	max-height: calc(60vh - 80px);
+	max-height: calc(90vh - 80px);
 	overflow-y: auto;
-	composes: details from './single/faq.module.scss';
+	border: none;
+	background: var.$white;
 }
 
 .summary {
-	composes: summary from './single/faq.module.scss';
 	padding: 0;
 
 	&:after {
@@ -20,16 +21,18 @@
 	}
 }
 
-.content {
-	composes: content from './single/faq.module.scss';
-}
-
 .faqs {
 	position: relative;
 
 	&:hover, &:focus, &.focus-within {
+		outline: none;
+
 		.edit {
 			opacity: 1;
 		}
 	}
+}
+
+.add {
+	margin-top: 50px;
 }

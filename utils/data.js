@@ -1,14 +1,14 @@
-export const clearData = () => {
-	window.localStorage.removeItem(`contentData`);
+export const clearData = (type) => {
+	window.localStorage.removeItem(`data_${type}`);
 };
 
-export const addData = (data) => {
-	window.localStorage.setItem(`contentData`, JSON.stringify(data));
+export const addData = (data, type) => {
+	window.localStorage.setItem(`data_${type}`, JSON.stringify(data));
 };
 
-export const getData = () => {
-	if (window && window.localStorage.getItem(`contentData`)) {
-		return JSON.parse(window.localStorage.getItem(`contentData`));
+export const getData = (type) => {
+	if (window && window.localStorage.getItem(`data_${type}`)) {
+		return JSON.parse(window.localStorage.getItem(`data_${type}`));
 	}
 
 	return [];

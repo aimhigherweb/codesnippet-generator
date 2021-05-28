@@ -1,0 +1,48 @@
+.pa_cols {
+	position: relative;
+	padding-bottom: 50px;
+
+	> * {
+		outline: 1px dashed var.$grey_light;
+		outline-offset: 0;
+	}
+}
+
+.add {
+	position: absolute;
+	right: 0;
+	bottom: 0;
+}
+
+.edit {
+	position: absolute;
+	z-index: 50;
+	right: 0;
+	opacity: 0;
+}
+
+.tile {
+	position: relative;
+
+	&:hover, &:focus, &.focus-within {
+		.edit {
+			opacity: 1;
+		}
+	}
+}
+
+.wrapper {
+	width: 100%;
+}
+
+.types {
+	composes: types from '../../../../pages/index.module.scss';
+}
+
+.items {
+	composes: items from '../../../../pages/index.module.scss';
+
+	label {
+		margin: 5px;
+	}
+}

@@ -1,14 +1,19 @@
 import {
-	useState
+	useState, Fragment
 } from "react";
 import Builder from '../../builder';
 
-import Tile from './single';
+import Edit from './edit';
+
+import { container } from '../../../../_data/tileOptions';
 
 import { addData } from '../../../../utils/data';
 
+import styles from './tiles.module.scss';
+
 const FlexiTiles = ({ type }) => {
 	const [tiles, setTiles] = useState([]);
+	const [options, setOptions] = useState({});
 	const details = {
 		type,
 		setHook: setTiles
@@ -21,15 +26,43 @@ const FlexiTiles = ({ type }) => {
 				content: `Tile Content`
 			}
 		];
-		addData(newTiles);
+		addData(newTiles, type);
 		setTiles(newTiles);
+	};
+	const changeOptions = (opt, checked) => {
+		const opts = options;
+
+		opts[opt] = checked;
+		setOptions(opts);
 	};
 
 	return (
 		<Builder {...details}>
-			<div>
+			<fieldset className={styles.types}>
+				<legend>Select Options</legend>
+				<div className={styles.items}>
+					{container.map((opt) => (
+						<Fragment key={opt.value}>
+							<input
+								id={opt.value}
+								name="opt_type"
+								type="checkbox"
+								defaultChecked={options[opt.value]}
+								onChange={(e) => changeOptions(opt.value, e?.target?.checked)}
+							/>
+							<label
+								htmlFor={opt.value}
+
+							>
+								{opt.label}
+							</label>
+						</Fragment>
+					))}
+				</div>
+			</fieldset>
+			<div className={`${styles.pa_cols} pa_cols`}>
 				{tiles.map((tile, i) => (
-					<Tile
+					<Edit
 						key={i}
 						{...{
 							...tile,
@@ -39,7 +72,7 @@ const FlexiTiles = ({ type }) => {
 						}}
 					/>
 				))}
-				<button onClick={() => addTile()}>Add Tile</button>
+				<button className={styles.add} onClick={() => addTile()}>Add Tile</button>
 			</div>
 		</Builder>
 	);

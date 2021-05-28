@@ -7,6 +7,8 @@ import FAQ from './edit';
 
 import { addData } from '../../../../utils/data';
 
+import styles from './faqs.module.scss';
+
 const FAQs = ({ type }) => {
 	const [faqs, setFaqs] = useState([]);
 	const details = {
@@ -21,7 +23,7 @@ const FAQs = ({ type }) => {
 				content: `FAQ Content`
 			}
 		];
-		addData(newFaqs);
+		addData(newFaqs, type);
 		setFaqs(newFaqs);
 	};
 
@@ -35,11 +37,12 @@ const FAQs = ({ type }) => {
 							...faq,
 							data: faqs,
 							setData: setFaqs,
-							i
+							i,
+							type
 						}}
 					/>
 				))}
-				<button onClick={() => addFaq()}>Add FAQ</button>
+				<button className={styles.add} onClick={() => addFaq()}>Add FAQ</button>
 			</div>
 		</Builder>
 	);

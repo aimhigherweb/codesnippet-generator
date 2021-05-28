@@ -10,12 +10,6 @@ import styles from './pasteCode.module.scss';
 const PasteCode = ({ type, setHook, ...modalProps }) => {
 	const ref = useRef(null);
 
-	let Code;
-
-	if (type === `faq`) {
-		// Code = FAQCode;
-	}
-
 	const generateBlocks = () => {
 		const code = ref.current.value;
 		const el = document.createElement(`div`);
@@ -25,9 +19,8 @@ const PasteCode = ({ type, setHook, ...modalProps }) => {
 		const data = parse(el);
 
 		setHook(data);
-		addData(data);
+		addData(data, type);
 		modalProps.closeModal(false);
-		// console.log(modalProps);
 	};
 
 	return (
