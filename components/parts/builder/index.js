@@ -12,11 +12,11 @@ const Builder = ({ type, setHook, children }) => {
 	const [paste, openPaste] = useState(false);
 	const clear = () => {
 		setHook([]);
-		clearData();
+		clearData(type);
 	};
 
 	useEffect(() => {
-		setHook(getData);
+		setHook(getData(type));
 	}, []);
 
 	return (

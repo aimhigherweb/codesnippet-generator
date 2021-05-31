@@ -3,12 +3,18 @@ import { useRef } from "react";
 import Modal from '../modal';
 
 import { addData } from '../../../utils/data';
-import parse from '../../../utils/parse/faq';
+import parseFaq from '../../../utils/parse/faq';
+import parseTiles from '../../../utils/parse/tiles';
 
 import styles from './pasteCode.module.scss';
 
 const PasteCode = ({ type, setHook, ...modalProps }) => {
 	const ref = useRef(null);
+	let parse = parseFaq;
+
+	if (type == `flexi`) {
+		parse = parseTiles;
+	}
 
 	const generateBlocks = () => {
 		const code = ref.current.value;

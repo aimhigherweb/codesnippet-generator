@@ -1,7 +1,7 @@
 import styles from './modal.module.scss';
 
-const Modal = ({ children, closeModal }) => (
-	<div className={styles.modal}>
+const Modal = ({ children, closeModal, className }) => (
+	<div className={`${styles.modal} ${className}`} data-modal="true">
 		<button className={styles.close} onClick={() => closeModal(false)}>Close Modal</button>
 		{children}
 	</div>

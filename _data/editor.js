@@ -12,6 +12,11 @@ const buttonsFull = [[
 	`image`
 ]];
 
+const buttonsSimple = [[
+	`bold`,
+	`italic`,
+]];
+
 const colours = [
 	[
 		`#0093c9`,
@@ -33,9 +38,12 @@ const formats = [
 	{
 		tag: `p`,
 		name: `Leading Paragraph`,
-		class: `pa_lead`
+		command: `free`,
+		class: `__se__format__free_pa_lead`
 	}
 ];
+
+const paragraphStyles = [];
 
 const imageOptions = {
 	imageFileInput: false,
@@ -47,5 +55,7 @@ module.exports = {
 	buttonsFull,
 	colours,
 	formats,
-	imageOptions
+	imageOptions,
+	paragraphStyles,
+	buttonsSimple
 };

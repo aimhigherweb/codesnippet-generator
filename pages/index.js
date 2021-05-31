@@ -11,33 +11,38 @@ import types from '../_data/types';
 import styles from './index.module.scss';
 
 const IndexPage = () => {
-	const defaultType = (typeof window !== `undefined` && window.localStorage.getItem(`contentType`)) ? window.localStorage.getItem(`contentType`) : `faq`;
-	const [type, setType] = useState(defaultType);
+	const [type, setType] = useState(`faq`);
 	const switchType = (type) => {
 		setType(type);
 
 		window.localStorage.setItem(`contentType`, type);
 	};
 
+	useEffect(() => {
+		if (typeof window !== `undefined` && window.localStorage.getItem(`contentType`)) {
+			setType(window.localStorage.getItem(`contentType`));
+		}
+	}, []);
+
 	return (
 		<Layout>
 			<fieldset className={styles.types}>
 				<legend>Select Code Type</legend>
 				<div className={styles.items}>
-					{types.map((type) => (
-						<Fragment key={type.id}>
+					{types.map((opt) => (
+						<Fragment key={opt.id}>
 							<input
-								id={type.id}
+								id={opt.id}
 								name="code_type"
 								type="radio"
-								defaultChecked={type.id === defaultType}
-								onChange={() => switchType(type.id)}
+								defaultChecked={opt.id === type}
+								onChange={() => switchType(opt.id)}
 							/>
 							<label
-								htmlFor={type.id}
+								htmlFor={opt.id}
 
 							>
-								{type.name}
+								{opt.name}
 							</label>
 						</Fragment>
 					))}

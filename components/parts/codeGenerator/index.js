@@ -1,6 +1,7 @@
 import { renderToStaticMarkup } from "react-dom/server";
-import { useRef } from "react";
+import { useEffect, useRef } from "react";
 import FAQCode from '../blocks/faq/code';
+import FlexiTileCode from '../blocks/flexTiles/code';
 
 import Modal from '../modal';
 
@@ -15,6 +16,10 @@ const CodeGenerator = ({ type, ...modalProps }) => {
 
 	if (type === `faq`) {
 		Code = FAQCode;
+	}
+
+	if (type === `flexi`) {
+		Code = FlexiTileCode;
 	}
 
 	const content = renderToStaticMarkup(<Code {...{ data }} />)

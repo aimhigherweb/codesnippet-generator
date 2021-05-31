@@ -1,8 +1,12 @@
-.pa_cols {
+.cols {
 	position: relative;
-	padding-bottom: 50px;
+	max-width: 1040px;
+	margin: 20px auto;
+	padding: 20px 20px 50px;
+	outline: 1px dashed var.$grey_light;
+	outline-offset: 0;
 
-	> * {
+	> *:not([data-modal='true']) {
 		outline: 1px dashed var.$grey_light;
 		outline-offset: 0;
 	}
@@ -10,7 +14,7 @@
 
 .add {
 	position: absolute;
-	right: 0;
+	right: 50px;
 	bottom: 0;
 }
 
@@ -18,21 +22,19 @@
 	position: absolute;
 	z-index: 50;
 	right: 0;
+	bottom: 0;
 	opacity: 0;
-}
-
-.tile {
-	position: relative;
-
-	&:hover, &:focus, &.focus-within {
-		.edit {
-			opacity: 1;
-		}
-	}
 }
 
 .wrapper {
 	width: 100%;
+	max-height: calc(95vh - 80px);
+	overflow-y: auto;
+
+	h2 {
+		margin: 10px 0 5px;
+		font-size: 1.2em;
+	}
 }
 
 .types {
@@ -41,8 +43,4 @@
 
 .items {
 	composes: items from '../../../../pages/index.module.scss';
-
-	label {
-		margin: 5px;
-	}
 }

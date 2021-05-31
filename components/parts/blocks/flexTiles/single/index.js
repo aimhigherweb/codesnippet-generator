@@ -1,10 +1,18 @@
 import { Fragment } from 'react';
 
 const Tile = ({
-	heading, content, image, link, align, width
+	heading, content, image, cta, link, options = {}, children
 }) => {
-	const itemClass = `${align} ${width}`;
-	let type;
+	let itemClass = ``;
+	let type = ``;
+
+	Object.entries(options).forEach(([key, value]) => {
+		itemClass += ` ${key}`;
+
+		if (typeof value === `string`) {
+			itemClass += `_${value}`;
+		}
+	});
 
 	if (link) {
 		type = `link`;
@@ -14,22 +22,34 @@ const Tile = ({
 		<Wrapper {...{ type, link }}>
 			{image
 				&& <img
-					src={image.src}
+					src={image.url}
 					style={{ maxWidth: image.maxWidth }}
 					className={itemClass}
+					data-attribute="image"
 				/>
 			}
 			<div
-				className={itemClass}
+				className={`${itemClass} content`}
+				data-attribute="container"
+				data-options={JSON.stringify(options)}
 			>
-				<h3 dangerouslySetInnerHTML={{ __html: heading }} />
-				<div dangerouslySetInnerHTML={{ __html: content }} />
+				{(heading && heading !== ``) && <h3 data-attribute="heading" dangerouslySetInnerHTML={{ __html: heading }} />}
+				{(content && content !== ``) && <div data-attribute="content" dangerouslySetInnerHTML={{ __html: content }} />}
+				{cta
+					&& <Fragment>
+						<a href={cta.url} className="pa_btn">{cta.text}</a>
+					</Fragment>
+				}
+				{children}
 			</div>
+
 		</Wrapper>
 	);
 };
 
-const Wrapper = ({ type, link, children }) => {
+const Wrapper = ({
+	type, link, children
+}) => {
 	if (type === `link`) {
 		return (
 			<a href={link}>

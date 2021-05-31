@@ -30,6 +30,26 @@ body {
 			color: inherit;
 			font-family: inherit;
 			font-size: inherit;
+
+			> * {
+				&:first-child {
+					margin-top: 0;
+				}
+
+				&:last-child {
+					margin-bottom: 0;
+				}
+			}
+		}
+
+		.se-wrapper {
+			.se-placeholder {
+				height: 100%;
+				padding: 16px;
+				font-family: inherit;
+				font-size: 1em;
+				line-height: 1.5;
+			}
 		}
 	}
 }

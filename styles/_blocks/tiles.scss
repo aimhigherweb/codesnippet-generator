@@ -19,8 +19,18 @@
 			margin-top: 20px;
 		}
 
-		&.right {
+		&.text_align_right {
 			text-align: right;
+		}
+	}
+
+	.content {
+		position: relative;
+
+		&:hover, &:focus, &.focus-within {
+			.edit {
+				opacity: 1;
+			}
 		}
 	}
 
@@ -29,6 +39,10 @@
 		max-height: 400px;
 		object-fit: cover;
 		object-position: center;
+
+		&.image_position_right {
+			order: 2;
+		}
 	}
 
 	p {
@@ -46,10 +60,41 @@
 	}
 }
 
-.pa_lead {
+.pa_btn {
+	display: inline-block;
+	position: relative;
+	margin-top: 12px;
+	padding: 3px 40px 0 14px;
+	background: var.$primary;
+	color: var.$white;
+	font-size: 1.2em;
+	font-weight: 700;
+	line-height: 2.25;
+	text-decoration: none;
+	text-transform: uppercase;
+
+	&:after {
+		content: '';
+		display: block;
+		position: absolute;
+		top: 0;
+		right: 0;
+		width: 27px;
+		height: 35px;
+		background: url('https://pacificautomation.com.au/content/files/icons/btn-bg-right-bottom.png') left top no-repeat, url('https://pacificautomation.com.au/content/files/icons/btn-arrow-right.png') center center no-repeat;
+		background-size: auto 100%, auto auto;
+	}
+
+	&:hover {
+		background: var.$orange;
+		text-decoration: none;
+	}
+}
+
+.__se__format__free_pa_lead {
 	font-size: 22px;
 	font-weight: 700;
-	line-height: 28px;
+	line-height: 1.3;
 }
 
 @media (min-width: 40em) {

@@ -5,36 +5,35 @@ import dynamic from 'next/dynamic'
 import "suneditor/dist/css/suneditor.min.css";
 
 import styles from './text.module.scss'
+import cleanContent from '../../../../utils/cleanContent';
+
+import {buttonsSimple} from '../../../../_data/editor'
 
 const SunEditor = dynamic(() => import(`suneditor-react`), {
 	ssr: false,
 });
 
 const Text = ({
-	value, onChange, onBlur, className, ...props
+	value, onChange, onBlur, section, className, ...props
 }) => {
-	const [toolbar, toggleToolbar] = useState(false)
 	const editor = useRef();
 	const getSunEditorInstance = (sunEditor) => {
 		editor.current = sunEditor;
 	};
+	const stripString = (content) => {
+		return cleanContent(content).replace(/<p>/g, '').replace(/<\/p>/g, '')
+	}
 
 	return (
 		<div className={`${styles.editor} ${className}`}>
-			{props.hideToolbar && <button className={styles.edit} onClick={() => toggleToolbar(!toolbar)}>Edit</button>}
 			<SunEditor
-				hideToolbar={!toolbar}
 				ref={editor}
 				getSunEditorInstance={getSunEditorInstance}
 				defaultValue={value}
-				onBlur={onBlur}
-				onChange={(e) => onChange(e)}
+				onBlur={(e, editorContents) => onBlur(stripString(editorContents), section)}
+				onChange={(e) => onChange(stripString(e), section)}
 				setOptions={{
-					buttonList: [[
-						"bold",
-						"italic",
-					]],
-					formats: ["p", "h1", "h2", "h3", "h4"],
+					buttonList: buttonsSimple,
 				}}
 				{...props}
 			/>

@@ -11,6 +11,7 @@
 
 .items {
 	display: flex;
+	flex-wrap: wrap;
 
 	input[type='radio'], input[type='checkbox'] {
 		position: absolute;
@@ -31,5 +32,22 @@
 		&:hover {
 			border-color: var.$primary;
 		}
+	}
+
+	button, select {
+		margin: 5px;
+		border-color: transparent;
+		background: none;
+		color: var.$neutral;
+		font-weight: 400;
+
+		&[aria-pressed='true'] {
+			border-color: var.$primary;
+			background: var.$primary;
+		}
+	}
+
+	select {
+		align-self: center;
 	}
 }
