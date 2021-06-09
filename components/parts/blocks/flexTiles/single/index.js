@@ -1,10 +1,11 @@
 import { Fragment } from 'react';
 
 const Tile = ({
-	heading, content, image, cta, link, options = {}, children
+	heading, content, image, cta, url, options = {}, children, disableLink
 }) => {
 	let itemClass = ``;
 	let type = ``;
+	const exists = (sections) => sections.some(((sect) => sect && sect !== ``));
 
 	Object.entries(options).forEach(([key, value]) => {
 		itemClass += ` ${key}`;
@@ -14,54 +15,58 @@ const Tile = ({
 		}
 	});
 
-	if (link) {
+	if (url) {
 		type = `link`;
 	}
 
 	return (
-		<Wrapper {...{ type, link }}>
-			{image
+		<Wrapper {...{
+			type, url, disableLink, itemClass
+		}}>
+			{exists([image])
 				&& <img
 					src={image.url}
 					style={{ maxWidth: image.maxWidth }}
-					className={itemClass}
+					className={`feature`}
 					data-attribute="image"
 				/>
 			}
-			<div
-				className={`${itemClass} content`}
-				data-attribute="container"
-				data-options={JSON.stringify(options)}
-			>
-				{(heading && heading !== ``) && <h3 data-attribute="heading" dangerouslySetInnerHTML={{ __html: heading }} />}
-				{(content && content !== ``) && <div data-attribute="content" dangerouslySetInnerHTML={{ __html: content }} />}
-				{cta
+			{exists([heading, content, cta])
+				&& <div
+					className={`content`}
+					data-attribute="container"
+					data-options={JSON.stringify(options)}
+				>
+					{exists([heading]) && <h3 data-attribute="heading" dangerouslySetInnerHTML={{ __html: heading }} />}
+					{exists([content]) && <div data-attribute="content" dangerouslySetInnerHTML={{ __html: content }} />}
+					{exists([cta])
 					&& <Fragment>
-						<a href={cta.url} className="pa_btn">{cta.text}</a>
+						<a href={cta.url} className={`pa_btn background_${cta.colour}`}>{cta.text}</a>
 					</Fragment>
-				}
-				{children}
-			</div>
+					}
 
+				</div>
+			}
+			{children}
 		</Wrapper>
 	);
 };
 
 const Wrapper = ({
-	type, link, children
+	type, url, children, disableLink, itemClass, options
 }) => {
 	if (type === `link`) {
 		return (
-			<a href={link}>
+			<a href={!disableLink && url} className={`${itemClass} pa_tile`} data-options={JSON.stringify(options)}>
 				{children}
 			</a>
 		);
 	}
 
 	return (
-		<Fragment>
+		<div className={`${itemClass} pa_tile`} data-options={JSON.stringify(options)}>
 			{children}
-		</Fragment>
+		</div>
 	);
 };
 

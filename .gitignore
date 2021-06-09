@@ -39,3 +39,4 @@ yarn-error.log*
 .env
 _data/templates
 *.key.json
+styles.css

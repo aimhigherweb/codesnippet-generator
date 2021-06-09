@@ -9,7 +9,7 @@ import Modal from '../../modal';
 import Text from '../../inputs/text';
 import TextArea from '../../inputs/textArea';
 
-import { tile as tileOpts } from '../../../../_data/tileOptions';
+import { tile as tileOpts, colours } from '../../../../_data/tileOptions';
 import styles from './tiles.module.scss';
 
 const EditTile = ({
@@ -55,9 +55,10 @@ const EditTile = ({
 
 		tiles[i] = details;
 
+		console.log(tiles[i]);
+
 		setValues(details);
 		setData(tiles);
-		addData(tiles, type);
 	};
 	const changeSub = (editorContents, section) => {
 		const tiles = data;
@@ -74,7 +75,10 @@ const EditTile = ({
 
 		setValues(details);
 		setData(tiles);
-		addData(tiles, type);
+	};
+	const saveChanges = () => {
+		addData(data, type);
+		openModal(!modal);
 	};
 
 	return (
@@ -82,7 +86,8 @@ const EditTile = ({
 			<Tile
 				{...{
 					...values,
-					options
+					options,
+					disableLink: true
 				}}
 			>
 				<button
@@ -94,21 +99,22 @@ const EditTile = ({
 			</Tile>
 			{modal
 				&& <Modal closeModal={openModal} className={`modal`}>
+					<button className={styles.save} onClick={() => saveChanges()}>Save Changes</button>
 					<div className={`${styles.wrapper}`}>
 						<div className={styles.types}>
 							<h2>Select Options</h2>
 							<div className={styles.items}>
 								{tileOpts.map((opt) => (
-									<Fragment>
+									<Fragment key={opt.value}>
 										{opt.opts
 											? <select
-												key={opt.value}
 												onChange={(e) => changeOptionValue(opt.value, e.target.value)}
 												defaultValue={options[opt.value]}
 											>
 												<option>{opt.label}</option>
 												{opt.opts.map((o) => (
 													<option
+														key={o.value}
 														value={o.value}
 													>
 														{o.label}
@@ -116,7 +122,6 @@ const EditTile = ({
 												))}
 											</select>
 											: <button
-												key={opt.value}
 												onClick={() => changeOptions(opt.value, options[opt.value])}
 												aria-pressed={options[opt.value]}
 											>
@@ -147,6 +152,20 @@ const EditTile = ({
 							hideToolbar={false}
 							placeholder={`Content`}
 						/>
+						{options.link
+							&& <Fragment>
+								<h2>Tile Link</h2>
+								<Text
+									className={` `}
+									value={values?.url}
+									onBlur={change}
+									onChange={change}
+									section={`url`}
+									hideToolbar={true}
+									placeholder={`https://pacificautomation.com.au/products/industrial-automation/motor-control`}
+								/>
+							</Fragment>
+						}
 						{options.image
 							&& <Fragment>
 								<h2>Flexi Image</h2>
@@ -182,6 +201,21 @@ const EditTile = ({
 									hideToolbar={true}
 									placeholder={`/contact-us`}
 								/>
+								<select
+									className={` `}
+									value={values?.cta?.colour}
+									onChange={(e) => { changeSub(e.target.value, [`cta`, `colour`]); }}
+									section={[`cta`, `colour`]}
+								>
+									{colours.map((opt) => (
+										<option
+											key={opt.value}
+											value={opt.value}
+										>
+											{opt.label}
+										</option>
+									))}
+								</select>
 							</Fragment>
 						}
 					</div>

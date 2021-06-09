@@ -1,3 +1,30 @@
+const colours = [
+	{
+		value: `blue_light`,
+		label: `Light Blue`
+	},
+	{
+		value: `blue_dark`,
+		label: `Dark Blue`
+	},
+	{
+		value: `grey_dark`,
+		label: `Dark Grey`
+	},
+	{
+		value: `grey_medium`,
+		label: `Medium Grey`
+	},
+	{
+		value: `grey_light`,
+		label: `Light Grey`
+	},
+	{
+		value: `gold`,
+		label: `Gold`
+	}
+];
+
 const container = [
 	{
 		value: `multi_row`,
@@ -6,6 +33,20 @@ const container = [
 	{
 		label: `Small Images`,
 		value: `img_small`
+	},
+	{
+		label: `Columns`,
+		value: `col`,
+		opts: [
+			{
+				value: 2,
+				label: `2`
+			},
+			{
+				value: 3,
+				label: `3`
+			}
+		]
 	}
 ];
 
@@ -23,6 +64,10 @@ const tile = [
 				label: `Right`
 			}
 		]
+	},
+	{
+		value: `link`,
+		label: `Tile Link`
 	},
 	{
 		value: `cta`,
@@ -60,9 +105,45 @@ const tile = [
 			}
 		]
 	},
+	{
+		value: `background`,
+		label: `Background Colour`,
+		opts: colours
+	},
+	{
+		value: `width`,
+		label: `Tile Width`,
+		opts: [
+			{
+				value: `full`,
+				label: `Full Width`
+			},
+			{
+				value: `half`,
+				label: `1/2`
+			},
+			{
+				value: `third`,
+				label: `1/3`
+			},
+			{
+				value: `twothird`,
+				label: `2/3`
+			},
+			{
+				value: `quarter`,
+				label: `1/4`
+			},
+			{
+				value: `threequarter`,
+				label: `3/4`
+			},
+		]
+	}
 ];
 
 module.exports = {
 	container,
-	tile
+	tile,
+	colours
 };

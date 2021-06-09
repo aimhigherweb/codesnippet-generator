@@ -27,7 +27,10 @@ const EditFAQ = ({
 		const faqs = data;
 		faqs[i].content = editorContents;
 		setData(faqs);
-		addData(faqs, type);
+	};
+	const saveChanges = () => {
+		addData(data, type);
+		openModal(!modal);
 	};
 
 	return (
@@ -41,6 +44,7 @@ const EditFAQ = ({
 			<FAQ {...{ summary: summaryValue, content: contentValue }} />
 			{modal
 				&& <Modal closeModal={openModal}>
+					<button className={styles.save} onClick={() => saveChanges()}>Save Changes</button>
 					<div className={`${styles.details} faq_details`}>
 						<Text
 							className={`${styles.summary} faq_summary`}

@@ -14,6 +14,7 @@ import styles from './tiles.module.scss';
 const FlexiTiles = ({ type }) => {
 	const [tiles, setTiles] = useState([]);
 	const [options, setOptions] = useState({});
+	const [itemClass, setItemClass] = useState(``);
 	const details = {
 		type,
 		setHook: setTiles
@@ -31,27 +32,47 @@ const FlexiTiles = ({ type }) => {
 	const changeOptions = (opt, checked) => {
 		const opts = options;
 
-		opts[opt] = checked;
+		opts[opt] = !checked;
+
 		setOptions(opts);
+
+		generateClass(opts);
 
 		window.localStorage.setItem(`flexi_options`, JSON.stringify(opts));
 	};
+	const changeOptionValue = (opt, value) => {
+		const opts = options;
 
-	let itemClass = ``;
+		opts[opt] = value;
+
+		setOptions(opts);
+
+		generateClass(opts);
+
+		window.localStorage.setItem(`flexi_options`, JSON.stringify(opts));
+	};
+	const generateClass = (opts) => {
+		let classes = ``;
+
+		Object.entries(opts).forEach(([key, value]) => {
+			classes += ` ${key}`;
+
+			if (typeof value === `string`) {
+				classes += `_${value}`;
+			}
+		});
+
+		setItemClass(classes);
+	};
 
 	useEffect(() => {
 		if (typeof window !== `undefined` && window.localStorage.getItem(`flexi_options`)) {
-			setOptions(JSON.parse(window.localStorage.getItem(`flexi_options`)));
+			const opts = JSON.parse(window.localStorage.getItem(`flexi_options`));
+
+			setOptions(opts);
+			generateClass(opts);
 		}
 	}, []);
-
-	Object.entries(options).forEach(([key, value]) => {
-		itemClass += ` ${key}`;
-
-		if (typeof value === `string`) {
-			itemClass += `_${value}`;
-		}
-	});
 
 	return (
 		<Builder {...details}>
@@ -60,19 +81,28 @@ const FlexiTiles = ({ type }) => {
 				<div className={styles.items}>
 					{container.map((opt) => (
 						<Fragment key={opt.value}>
-							<input
-								id={opt.value}
-								name="opt_type"
-								type="checkbox"
-								defaultChecked={options[opt.value]}
-								onChange={(e) => changeOptions(opt.value, e?.target?.checked)}
-							/>
-							<label
-								htmlFor={opt.value}
-
-							>
-								{opt.label}
-							</label>
+							{opt.opts
+								? <select
+									onChange={(e) => changeOptionValue(opt.value, e.target.value)}
+									defaultValue={options[opt.value]}
+								>
+									<option>{opt.label}</option>
+									{opt.opts.map((o) => (
+										<option
+											key={o.value}
+											value={o.value}
+										>
+											{o.label}
+										</option>
+									))}
+								</select>
+								: <button
+									onClick={() => changeOptions(opt.value, options[opt.value])}
+									aria-pressed={options[opt.value]}
+								>
+									{opt.label}
+								</button>
+							}
 						</Fragment>
 					))}
 				</div>
