@@ -55,14 +55,21 @@ const FlexiTiles = ({ type }) => {
 		let classes = ``;
 
 		Object.entries(opts).forEach(([key, value]) => {
-			classes += ` ${key}`;
+			if (key && value) {
+				classes += ` ${key}`;
+			}
 
 			if (typeof value === `string`) {
 				classes += `_${value}`;
 			}
 		});
 
+		console.log(classes);
+
 		setItemClass(classes);
+	};
+	const saveOptions = () => {
+		generateClass(options);
 	};
 
 	useEffect(() => {
@@ -105,6 +112,7 @@ const FlexiTiles = ({ type }) => {
 							}
 						</Fragment>
 					))}
+					<button onClick={() => saveOptions()} className={styles.options}>Update Options</button>
 				</div>
 			</fieldset>
 			<div className={`${styles.cols} pa_cols ${itemClass}`}>

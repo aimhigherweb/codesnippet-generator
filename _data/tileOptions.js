@@ -39,12 +39,20 @@ const container = [
 		value: `col`,
 		opts: [
 			{
+				value: 1,
+				label: `1`
+			},
+			{
 				value: 2,
 				label: `2`
 			},
 			{
 				value: 3,
 				label: `3`
+			},
+			{
+				value: 4,
+				label: `4`
 			}
 		]
 	}
@@ -91,20 +99,20 @@ const tile = [
 			}
 		]
 	},
-	{
-		value: `image_align`,
-		label: `Image Align`,
-		opts: [
-			{
-				value: `left`,
-				label: `Left`
-			},
-			{
-				value: `right`,
-				label: `Right`
-			}
-		]
-	},
+	// {
+	// 	value: `image_align`,
+	// 	label: `Image Align`,
+	// 	opts: [
+	// 		{
+	// 			value: `left`,
+	// 			label: `Left`
+	// 		},
+	// 		{
+	// 			value: `right`,
+	// 			label: `Right`
+	// 		}
+	// 	]
+	// },
 	{
 		value: `background`,
 		label: `Background Colour`,

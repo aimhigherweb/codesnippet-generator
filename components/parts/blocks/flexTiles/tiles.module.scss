@@ -49,4 +49,9 @@
 
 .items {
 	composes: items from '../../../../pages/index.module.scss';
+
+	.options {
+		background: var.$secondary;
+		color: var.$white;
+	}
 }
