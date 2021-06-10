@@ -17,13 +17,13 @@ const EditFAQ = ({
 	const [modal, openModal] = useState(false);
 	const [summaryValue, setSummary] = useState(summary);
 	const [contentValue, setContent] = useState(content);
-	const changeSummary = (e, editorContents) => {
+	const changeSummary = (editorContents) => {
 		const faqs = data;
 		faqs[i].summary = editorContents;
 		setData(faqs);
 		addData(faqs, type);
 	};
-	const changeContent = (e, editorContents) => {
+	const changeContent = (editorContents) => {
 		const faqs = data;
 		faqs[i].content = editorContents;
 		setData(faqs);

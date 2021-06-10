@@ -1,3 +1,18 @@
 @use './variables' as var;
 
-@import './global.scss';
+// @import './font.scss';
+// @import './_global/main.scss';
+// @import './_global/typo.scss';
+// @import './_global/editor.scss';
+@import './_blocks/main.scss';
+
+.pa_background {
+	position: absolute;
+	z-index: -1;
+	top: 0;
+	bottom: 0;
+	left: calc(-50% - 50vw);
+	width: 150vw;
+	transform: translateX(50%);
+	background: var.$grey_background;
+}

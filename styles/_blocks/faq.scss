@@ -1,10 +1,12 @@
 details, .faq_details {
+	max-width: 800px;
 	margin: 10px 0;
+	background: var.$white;
 
 	&[open] {
 		summary {
 			&:after {
-				transform: rotate(-90deg);
+				transform: rotate(0);
 			}
 		}
 	}
@@ -25,6 +27,7 @@ summary, .faq_summary {
 	padding: 20px;
 	border: none;
 	color: var.$primary;
+	font-size: 1.2em;
 	list-style: none;
 
 	&:hover, &:focus {
@@ -36,6 +39,7 @@ summary, .faq_summary {
 		z-index: 5;
 		width: 0;
 		height: 0;
+		transform: rotate(-90deg);
 		border-width: 20px 20px 0;
 		border-style: solid;
 		border-color: var.$primary transparent transparent transparent;
@@ -53,7 +57,7 @@ summary, .faq_summary {
 }
 
 .faq_content {
-	padding: 10px 50px;
+	padding: 0 50px 50px;
 	border: none;
 
 	p {

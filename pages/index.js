@@ -12,14 +12,16 @@ import styles from './index.module.scss';
 
 const IndexPage = () => {
 	const [type, setType] = useState(`faq`);
-	const switchType = (type) => {
-		setType(type);
+	const switchType = (codeType) => {
+		console.log(`switching type ${codeType}`);
+		setType(codeType);
 
-		window.localStorage.setItem(`contentType`, type);
+		window.localStorage.setItem(`contentType`, codeType);
 	};
 
 	useEffect(() => {
 		if (typeof window !== `undefined` && window.localStorage.getItem(`contentType`)) {
+			console.log(`setting type ${window.localStorage.getItem(`contentType`)}`);
 			setType(window.localStorage.getItem(`contentType`));
 		}
 	}, []);
@@ -36,7 +38,7 @@ const IndexPage = () => {
 								name="code_type"
 								type="radio"
 								defaultChecked={opt.id === type}
-								onChange={() => switchType(opt.id)}
+								onChange={switchType}
 							/>
 							<label
 								htmlFor={opt.id}

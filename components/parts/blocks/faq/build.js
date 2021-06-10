@@ -29,7 +29,7 @@ const FAQs = ({ type }) => {
 
 	return (
 		<Builder {...details}>
-			<div>
+			<div className={styles.faqContainer}>
 				{faqs.map((faq, i) => (
 					<FAQ
 						key={i}
