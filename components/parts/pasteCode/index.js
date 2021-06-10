@@ -31,7 +31,7 @@ const PasteCode = ({ type, setHook, ...modalProps }) => {
 
 	return (
 		<Modal {...modalProps}>
-			<button onClick={() => generateBlocks()}>Generate Blocks</button>
+			<button className={styles.generate} onClick={() => generateBlocks()}>Generate Blocks</button>
 			<textarea ref={ref} className={styles.import}></textarea>
 		</Modal>
 	);
