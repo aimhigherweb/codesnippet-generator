@@ -38,7 +38,7 @@ const IndexPage = () => {
 								name="code_type"
 								type="radio"
 								defaultChecked={opt.id === type}
-								onChange={switchType}
+								onChange={() => switchType(opt.id)}
 							/>
 							<label
 								htmlFor={opt.id}
