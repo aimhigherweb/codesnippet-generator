@@ -35,6 +35,10 @@
 
 		&.text_align_right {
 			text-align: right;
+
+			.pa_cta {
+				justify-content: flex-end;
+			}
 		}
 
 		&:hover {
@@ -157,6 +161,15 @@
 
 		> *:not(img) {
 			flex-basis: 60%;
+		}
+	}
+
+	.pa_cta {
+		justify-content: flex-start;
+		margin: 0 -10px;
+
+		.pa_btn {
+			margin: 20px 10px;
 		}
 	}
 }

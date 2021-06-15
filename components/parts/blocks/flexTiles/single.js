@@ -1,11 +1,13 @@
 import { Fragment } from 'react';
 
+import CTA from '../cta/single';
+
 const Tile = ({
 	heading, content, image, cta, url, options = {}, children, disableLink
 }) => {
 	let itemClass = ``;
 	let type = ``;
-	const exists = (sections) => sections.some(((sect) => sect && sect !== ``));
+	const exists = (sections) => sections.some(((sect) => sect && sect !== `` && sect !== []));
 
 	Object.entries(options).forEach(([key, value]) => {
 		itemClass += ` ${key}`;
@@ -40,9 +42,11 @@ const Tile = ({
 					{exists([heading]) && <h3 data-attribute="heading" dangerouslySetInnerHTML={{ __html: heading }} />}
 					{exists([content]) && <div data-attribute="content" dangerouslySetInnerHTML={{ __html: content }} />}
 					{exists([cta])
-					&& <Fragment>
-						<a href={cta.url} className={`pa_btn background_${cta.colour}`}>{cta.text}</a>
-					</Fragment>
+					&& <ul className="pa_cta" data-attribute="ctas">
+						{cta.map((link, i) => (
+							<CTA {...link} key={i} />
+						))}
+					</ul>
 					}
 
 				</div>

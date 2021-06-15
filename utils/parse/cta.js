@@ -18,8 +18,6 @@ const parseCTA = (data) => {
 		});
 	}
 
-	console.log(ctas);
-
 	return ctas;
 };
 

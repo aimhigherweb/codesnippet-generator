@@ -18,6 +18,7 @@ const EditTile = ({
 	const [modal, openModal] = useState(false);
 	const [values, setValues] = useState(tile);
 	const [options, setOptions] = useState(tileOptions);
+	const [ctas, setCTAs] = useState(tile.cta || []);
 	const changeOptions = (opt, checked) => {
 		const tiles = data;
 		const opts = options;
@@ -47,6 +48,7 @@ const EditTile = ({
 		addData(tiles, type);
 	};
 	const change = (editorContents, section) => {
+		console.log(editorContents, section);
 		const tiles = data;
 		const details = {
 			...values,
@@ -79,6 +81,16 @@ const EditTile = ({
 	const saveChanges = () => {
 		addData(data, type);
 		openModal(!modal);
+	};
+	const addCTA = () => {
+		const newCTAs = [
+			...ctas,
+			{
+				text: `CTA Button`
+			}
+		];
+		addData(newCTAs, type);
+		setCTAs(newCTAs);
 	};
 
 	return (
@@ -183,48 +195,86 @@ const EditTile = ({
 						{options.cta
 							&& <Fragment>
 								<h2>Call to Action</h2>
-								<h3>Text</h3>
-								<Text
-									className={` `}
-									value={values?.cta?.text}
-									onBlur={changeSub}
-									onChange={changeSub}
-									section={[`cta`, `text`]}
-									hideToolbar={true}
-									placeholder={`Contact Us`}
-								/>
-								<h3>Link</h3>
-								<Text
-									className={` `}
-									value={values?.cta?.link}
-									onBlur={changeSub}
-									onChange={changeSub}
-									section={[`cta`, `url`]}
-									hideToolbar={true}
-									placeholder={`/contact-us`}
-								/>
-								<h3>Background Colour</h3>
-								<select
-									className={` `}
-									value={values?.cta?.colour}
-									onChange={(e) => { changeSub(e.target.value, [`cta`, `colour`]); }}
-									section={[`cta`, `colour`]}
-								>
-									{colours.map((opt) => (
-										<option
-											key={opt.value}
-											value={opt.value}
-										>
-											{opt.label}
-										</option>
-									))}
-								</select>
+								{ctas?.map((cta, j) => (
+									<CTAFields key={j} {...{
+										...cta, i: j, change, ctas, setCTAs
+									}} />
+								))}
+								<button className={styles.addCTA} onClick={() => addCTA()}>Add CTA</button>
 							</Fragment>
 						}
 					</div>
 				</Modal>
 			}
 		</Fragment>
+	);
+};
+
+const CTAFields = ({
+	text, link, colour, i, change, ctas, setCTAs
+}) => {
+	const [textValue, setText] = useState(text);
+	const [linkValue, setLink] = useState(link);
+	const [colourValue, setColour] = useState(colour);
+	const changeText = (editorContents) => {
+		const data = ctas;
+		data[i].text = editorContents;
+		setText(editorContents);
+		setCTAs(data);
+		change(data, `cta`);
+	};
+	const changeLink = (editorContents) => {
+		const data = ctas;
+		data[i].link = editorContents;
+		setLink(editorContents);
+		setCTAs(data);
+		change(data, `cta`);
+	};
+	const changeColour = (editorContents) => {
+		const data = ctas;
+		data[i].colour = editorContents;
+		setColour(editorContents);
+		setCTAs(data);
+		change(data, `cta`);
+	};
+
+	return (
+		<div>
+			<h3>Link {i + 1}</h3>
+			<h4>Text</h4>
+			<Text
+				className={` `}
+				value={textValue}
+				onBlur={changeText}
+				onChange={changeText}
+				hideToolbar={true}
+				placeholder={`Contact Us`}
+			/>
+			<h4>Link</h4>
+			<Text
+				className={` `}
+				value={linkValue}
+				onBlur={changeLink}
+				onChange={changeLink}
+				hideToolbar={true}
+				placeholder={`/contact-us`}
+			/>
+			<h4>Background Colour</h4>
+			<select
+				className={` `}
+				value={colourValue}
+				onChange={(e) => changeColour(e.target.value)}
+			>
+				{colours.map((opt) => (
+					<option
+						key={opt.value}
+						value={opt.value}
+					>
+						{opt.label}
+					</option>
+				))}
+			</select>
+		</div>
 	);
 };
 
