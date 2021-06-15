@@ -22,6 +22,10 @@ const colours = [
 	{
 		value: `gold`,
 		label: `Gold`
+	},
+	{
+		value: `white`,
+		label: `White`
 	}
 ];
 

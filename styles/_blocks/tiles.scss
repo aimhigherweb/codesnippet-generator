@@ -55,7 +55,7 @@
 				color: inherit;
 			}
 
-			&.background_blue_light, &.background_grey_light {
+			&.background_blue_light, &.background_grey_light, &.background_white {
 				color: var.$neutral;
 			}
 
@@ -81,6 +81,10 @@
 
 			&.background_gold {
 				background: var.$gold;
+			}
+
+			&.background_white {
+				background: var.$white;
 			}
 		}
 	}
@@ -383,6 +387,14 @@
 
 			> * {
 				margin: 0 20px;
+			}
+		}
+
+		&:not(.img_small) {
+			.pa_tile {
+				img {
+					flex-shrink: 0;
+				}
 			}
 		}
 	}

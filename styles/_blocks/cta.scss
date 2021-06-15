@@ -74,6 +74,22 @@
 	&.background_gold {
 		background: var.$gold;
 	}
+
+	&.background_white {
+		padding-right: 14px;
+		border: 2px solid var.$secondary;
+		background: var.$white;
+		color: var.$secondary;
+
+		&:after {
+			content: normal;
+		}
+
+		&:hover {
+			background: var.$secondary;
+			color: var.$white;
+		}
+	}
 }
 
 .pa_cta {

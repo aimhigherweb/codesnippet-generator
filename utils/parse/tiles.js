@@ -5,24 +5,20 @@ const parseTiles = (data) => {
 			tiles.push(details);
 		}
 	}
-
-	let details = {}
-	let tile_options = {}
-	let flexi_options = {}
+	let flexi_options
 
 	// eslint-disable-next-line no-restricted-syntax
 	for (const container of data.children) {
-		flexi_options = container.attributes?.['data-options']?.value
+		flexi_options = container.attributes?.['data-options']?.value || `{}`
 
 		for (const tile of container.children) {
 
 			const heading = tile.querySelector(`[data-attribute='heading']`)?.innerHTML
 			const content = tile.querySelector(`[data-attribute='content']`)?.innerHTML
-			const image = tile.querySelector(`[data-attribute='content']`)?.src
+			const image = tile.querySelector(`[data-attribute='image']`)?.src
 			const options = tile.querySelector(`[data-attribute='container']`).dataset.options || `{}`
 			const links = tile.querySelector(`[data-attribute='ctas']`)
 			let ctas = []
-
 
 			if(links && links.children) {
 				console.log(links)
@@ -44,7 +40,9 @@ const parseTiles = (data) => {
 			tiles.push({
 				heading,
 				content,
-				image,
+				image: {
+					url: image
+				},
 				cta: ctas,
 				options: JSON.parse(options)
 			})
