@@ -31,11 +31,9 @@ const CodeGenerator = ({ type, ...modalProps }) => {
 
 	return (
 		<Modal {...modalProps}>
-			<div>
-				<pre className={styles.code} ref={ref}>
-					{content}
-				</pre>
-			</div>
+			<textarea className={styles.code} ref={ref}>
+				{content}
+			</textarea>
 		</Modal>
 	);
 };

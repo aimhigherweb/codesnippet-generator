@@ -4,7 +4,7 @@
 	margin-top: 12px;
 	padding: 3px 40px 0 14px;
 	background: var.$primary;
-	color: var.$white;
+	color: var.$neutral;
 	font-size: 1.2em;
 	font-weight: 700;
 	line-height: 2.25;
@@ -49,6 +49,10 @@
 		&:after {
 			filter: invert(100%);
 		}
+	}
+
+	&.background_blue_dark, &.background_grey_dark, &.background_grey_medium, &.background_gold {
+		color: var.$white;
 	}
 
 	&.background_blue_dark {
