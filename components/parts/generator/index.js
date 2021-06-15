@@ -1,5 +1,6 @@
 import FAQ from '../blocks/faq/build';
 import FlexiTiles from '../blocks/flexTiles/build';
+import CTA from '../blocks/cta/build';
 
 const Generator = ({ type }) => {
 	let Builder;
@@ -8,6 +9,8 @@ const Generator = ({ type }) => {
 		Builder = FAQ;
 	} else if (type === `flexi`) {
 		Builder = FlexiTiles;
+	} else if (type === `cta`) {
+		Builder = CTA;
 	}
 
 	return (

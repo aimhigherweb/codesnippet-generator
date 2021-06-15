@@ -6,6 +6,10 @@ const types = [
 	{
 		name: `Flexi Tiles`,
 		id: `flexi`
+	},
+	{
+		name: `CTA Buttons`,
+		id: `cta`
 	}
 ];
 

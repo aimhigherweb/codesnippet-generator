@@ -183,6 +183,7 @@ const EditTile = ({
 						{options.cta
 							&& <Fragment>
 								<h2>Call to Action</h2>
+								<h3>Text</h3>
 								<Text
 									className={` `}
 									value={values?.cta?.text}
@@ -192,6 +193,7 @@ const EditTile = ({
 									hideToolbar={true}
 									placeholder={`Contact Us`}
 								/>
+								<h3>Link</h3>
 								<Text
 									className={` `}
 									value={values?.cta?.link}
@@ -201,6 +203,7 @@ const EditTile = ({
 									hideToolbar={true}
 									placeholder={`/contact-us`}
 								/>
+								<h3>Background Colour</h3>
 								<select
 									className={` `}
 									value={values?.cta?.colour}

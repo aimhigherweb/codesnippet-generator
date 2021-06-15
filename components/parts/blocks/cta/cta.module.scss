@@ -1,0 +1,40 @@
+.edit {
+	position: absolute;
+	z-index: 50;
+	right: 0;
+	opacity: 0;
+}
+
+.add {
+	margin-top: 50px;
+}
+
+.save {
+	position: absolute;
+	top: 10px;
+	left: 10px;
+}
+
+.container {
+	max-width: 1000px;
+	padding: 20px;
+}
+
+.cta {
+	position: relative;
+
+	&:hover, &:focus, &.focus-within {
+		.edit {
+			opacity: 1;
+		}
+	}
+}
+
+.fields {
+	width: 100%;
+
+	h2 {
+		color: var.$secondary;
+		font-size: 1.2em;
+	}
+}

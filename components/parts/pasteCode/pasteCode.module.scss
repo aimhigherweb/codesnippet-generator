@@ -1,8 +1,9 @@
 .import {
-	composes: code from '../codeGenerator/codeGenerator.module.scss';
 	width: 100%;
+	min-height: 50vh;
 	margin-top: 20px;
 	border: none;
+	composes: code from '../codeGenerator/codeGenerator.module.scss';
 }
 
 .generate {
