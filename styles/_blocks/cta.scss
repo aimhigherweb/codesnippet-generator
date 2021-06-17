@@ -43,14 +43,6 @@
 		}
 	}
 
-	&.background_blue_light, &.background_grey_light {
-		color: var.$neutral;
-
-		&:after {
-			filter: invert(100%);
-		}
-	}
-
 	&.background_blue_dark, &.background_grey_dark, &.background_grey_medium, &.background_gold {
 		color: var.$white;
 	}
@@ -73,6 +65,11 @@
 
 	&.background_grey_light {
 		background: var.$grey_light;
+		color: var.$neutral;
+
+		&:after {
+			filter: invert(100%);
+		}
 	}
 
 	&.background_gold {
@@ -81,16 +78,16 @@
 
 	&.background_white {
 		padding-right: 14px;
-		border: 2px solid var.$secondary;
+		border: 2px solid var.$primary;
 		background: var.$white;
-		color: var.$secondary;
+		color: var.$primary;
 
 		&:after {
 			content: normal;
 		}
 
 		&:hover {
-			background: var.$secondary;
+			background: var.$primary;
 			color: var.$white;
 		}
 	}
