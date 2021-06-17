@@ -25,6 +25,7 @@
 
 	&:hover {
 		background: var.$orange;
+		color: var.$neutral;
 		text-decoration: none;
 
 		&:after {
@@ -35,6 +36,7 @@
 	&[class*='background_'] {
 		&:hover {
 			background: var.$orange;
+			color: var.$neutral;
 			text-decoration: none;
 
 			&:after {
