@@ -10,7 +10,11 @@ const types = [
 	{
 		name: `CTA Buttons`,
 		id: `cta`
-	}
+	},
+	{
+		name: `CTA Block`,
+		id: `cta_block`
+	},
 ];
 
 export default types;

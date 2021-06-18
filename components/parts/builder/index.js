@@ -7,16 +7,25 @@ import { clearData, getData } from '../../../utils/data';
 
 import styles from './builder.module.scss';
 
-const Builder = ({ type, setHook, children }) => {
+const Builder = ({
+	type, setHook, children
+}) => {
 	const [modal, openModal] = useState(false);
 	const [paste, openPaste] = useState(false);
 	const clear = () => {
-		setHook([]);
+		if (setHook) {
+			setHook([]);
+		}
+
 		clearData(type);
 	};
 
 	useEffect(() => {
-		setHook(getData(type));
+		const data = getData(type);
+
+		if (setHook) {
+			setHook(data);
+		}
 	}, []);
 
 	return (

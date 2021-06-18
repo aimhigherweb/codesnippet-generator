@@ -1,8 +1,9 @@
 import { renderToStaticMarkup } from "react-dom/server";
 import { useEffect, useRef } from "react";
-import FAQCode from '../blocks/faq/code';
-import FlexiTileCode from '../blocks/flexTiles/code';
+import FAQ from '../blocks/faq/code';
+import Flexi from '../blocks/flexTiles/code';
 import CTA from '../blocks/cta/code';
+import CTABlock from '../blocks/cta_block/code';
 
 import Modal from '../modal';
 
@@ -16,11 +17,13 @@ const CodeGenerator = ({ type, ...modalProps }) => {
 	let Code;
 
 	if (type === `faq`) {
-		Code = FAQCode;
+		Code = FAQ;
 	} else if (type === `flexi`) {
-		Code = FlexiTileCode;
+		Code = Flexi;
 	} else if (type === `cta`) {
 		Code = CTA;
+	} else if (type === `cta_block`) {
+		Code = CTABlock;
 	}
 
 	const content = renderToStaticMarkup(<Code {...{ data }} />)
