@@ -2,13 +2,13 @@ import {
 	useState
 } from "react";
 import CTA from './single';
-import Text from '../../inputs/text';
-import TextArea from '../../inputs/textArea';
+import Text from '../../parts/inputs/text';
+import TextArea from '../../parts/inputs/textArea';
 
-import { addData } from '../../../../utils/data';
+import { addData } from '../../../utils/data';
 
-import Modal from '../../modal';
-import { colours } from '../../../../_data/tileOptions';
+import Modal from '../../parts/modal';
+import { colours } from '../../../_data/tileOptions';
 
 import styles from './cta.module.scss';
 
@@ -105,7 +105,7 @@ const EditCTA = ({
 								</option>
 							))}
 						</select>
-						<h2>Text</h2>
+						<h2>Button Text</h2>
 						<Text
 							value={textValue}
 							onBlur={changeText}

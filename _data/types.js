@@ -15,6 +15,10 @@ const types = [
 		name: `CTA Block`,
 		id: `cta_block`
 	},
+	{
+		name: `Logo Slider`,
+		id: `logos`
+	},
 ];
 
 export default types;

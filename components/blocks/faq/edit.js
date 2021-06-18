@@ -2,12 +2,12 @@ import {
 	useState
 } from "react";
 import FAQ from './single';
-import Text from '../../inputs/text';
-import TextArea from '../../inputs/textArea';
+import Text from '../../parts/inputs/text';
+import TextArea from '../../parts/inputs/textArea';
 
-import { addData } from '../../../../utils/data';
+import { addData } from '../../../utils/data';
 
-import Modal from '../../modal';
+import Modal from '../../parts/modal';
 
 import styles from './faqs.module.scss';
 

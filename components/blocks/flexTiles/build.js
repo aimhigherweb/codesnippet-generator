@@ -1,13 +1,13 @@
 import {
 	useState, Fragment, useEffect
 } from "react";
-import Builder from '../../builder';
+import Builder from '../../parts/builder';
 
 import Edit from './edit';
 
-import { container } from '../../../../_data/tileOptions';
+import { container } from '../../../_data/tileOptions';
 
-import { addData } from '../../../../utils/data';
+import { addData } from '../../../utils/data';
 
 import styles from './tiles.module.scss';
 

@@ -49,11 +49,11 @@
 }
 
 .types {
-	composes: types from '../../../../pages/index.module.scss';
+	composes: types from '../../../pages/index.module.scss';
 }
 
 .items {
-	composes: items from '../../../../pages/index.module.scss';
+	composes: items from '../../../pages/index.module.scss';
 
 	.options {
 		background: var.$secondary;

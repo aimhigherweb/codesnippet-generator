@@ -1,11 +1,11 @@
 import {
 	useState
 } from "react";
-import Builder from '../../builder';
+import Builder from '../../parts/builder';
 
 import FAQ from './edit';
 
-import { addData } from '../../../../utils/data';
+import { addData } from '../../../utils/data';
 
 import styles from './faqs.module.scss';
 

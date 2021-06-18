@@ -1,11 +1,11 @@
 import {
 	useState, useEffect
 } from "react";
-import Builder from '../../builder';
+import Builder from '../../parts/builder';
 
 import CTA from './edit';
 
-import { getData, addData } from '../../../../utils/data';
+import { getData, addData } from '../../../utils/data';
 
 import styles from './cta.module.scss';
 

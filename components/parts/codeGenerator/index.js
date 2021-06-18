@@ -1,9 +1,10 @@
 import { renderToStaticMarkup } from "react-dom/server";
 import { useEffect, useRef } from "react";
-import FAQ from '../blocks/faq/code';
-import Flexi from '../blocks/flexTiles/code';
-import CTA from '../blocks/cta/code';
-import CTABlock from '../blocks/cta_block/code';
+import FAQ from '../../blocks/faq/code';
+import Flexi from '../../blocks/flexTiles/code';
+import CTA from '../../blocks/cta/code';
+import CTABlock from '../../blocks/cta_block/code';
+import Logos from '../../blocks/logos/code';
 
 import Modal from '../modal';
 
@@ -24,6 +25,8 @@ const CodeGenerator = ({ type, ...modalProps }) => {
 		Code = CTA;
 	} else if (type === `cta_block`) {
 		Code = CTABlock;
+	} else if (type === `logos`) {
+		Code = Logos;
 	}
 
 	const content = renderToStaticMarkup(<Code {...{ data }} />)
@@ -34,8 +37,7 @@ const CodeGenerator = ({ type, ...modalProps }) => {
 
 	return (
 		<Modal {...modalProps}>
-			<textarea className={styles.code} ref={ref}>
-				{content}
+			<textarea className={styles.code} ref={ref} defaultValue={content}>
 			</textarea>
 		</Modal>
 	);
