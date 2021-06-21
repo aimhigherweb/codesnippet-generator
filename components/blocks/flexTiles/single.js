@@ -25,7 +25,7 @@ const Tile = ({
 		<Wrapper {...{
 			type, url, disableLink, itemClass
 		}}>
-			{exists([image])
+			{exists([image?.url])
 				&& <img
 					src={image.url}
 					style={{ maxWidth: image.maxWidth }}

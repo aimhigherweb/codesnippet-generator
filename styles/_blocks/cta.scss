@@ -10,6 +10,7 @@
 	line-height: 2.25;
 	text-decoration: none;
 	text-transform: uppercase;
+	cursor: pointer;
 
 	&:after {
 		content: '';
@@ -97,12 +98,17 @@
 
 .pa_cta {
 	display: flex;
+	flex-wrap: wrap;
 	justify-content: center;
 	margin: 0;
 	padding: 0;
 	list-style: none;
 
-	.pa_btn {
+	li {
 		margin: 20px;
+	}
+
+	.pa_btn {
+		margin: 0;
 	}
 }

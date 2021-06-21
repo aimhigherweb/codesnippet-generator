@@ -3,9 +3,10 @@ import { useRef } from "react";
 import Modal from '../modal';
 
 import { addData } from '../../../utils/data';
-import parseFaq from '../../../utils/parse/faq';
-import parseTiles from '../../../utils/parse/tiles';
+import faq from '../../../utils/parse/faq';
+import flexiTiles from '../../../utils/parse/tiles';
 import cta from '../../../utils/parse/cta';
+import logos from '../../../utils/parse/logos';
 
 import styles from './pasteCode.module.scss';
 
@@ -14,11 +15,13 @@ const PasteCode = ({ type, setHook, ...modalProps }) => {
 	let parse = false;
 
 	if (type === `faq`) {
-		parse = parseFaq;
+		parse = faq;
 	} else if (type === `flexi`) {
-		parse = parseTiles;
+		parse = flexiTiles;
 	} else if (type === `cta`) {
 		parse = cta;
+	} else if (type === `logos`) {
+		parse = logos;
 	}
 
 	const generateBlocks = () => {
