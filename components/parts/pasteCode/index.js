@@ -7,6 +7,7 @@ import faq from '../../../utils/parse/faq';
 import flexiTiles from '../../../utils/parse/tiles';
 import cta from '../../../utils/parse/cta';
 import logos from '../../../utils/parse/logos';
+import slider from '../../../utils/parse/slider';
 
 import styles from './pasteCode.module.scss';
 
@@ -22,6 +23,8 @@ const PasteCode = ({ type, setHook, ...modalProps }) => {
 		parse = cta;
 	} else if (type === `logos`) {
 		parse = logos;
+	} else if (type === `slider`) {
+		parse = slider;
 	}
 
 	const generateBlocks = () => {

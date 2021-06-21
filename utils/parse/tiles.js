@@ -21,7 +21,6 @@ const parseTiles = (data) => {
 			let ctas = []
 
 			if(links && links.children) {
-				console.log(links)
 				for (const cta of links.children) {		
 					const button = cta.querySelector(`a`);
 			
