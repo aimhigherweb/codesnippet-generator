@@ -1,15 +1,15 @@
-import Logo from './single';
+import Product from './single';
 
-const CTACode = ({ data }) => {
-	const logos = data;
+const ProductSliderCode = ({ data }) => {
+	const products = data;
 
 	return (
-		<ul className="pa_logos">
-			{logos.map((logo, i) => (
-				<Logo {...logo} key={i} />
+		<ul className="pa_products">
+			{products.map((product, i) => (
+				<Product {...product} key={i} />
 			))}
 		</ul>
 	);
 };
 
-export default CTACode;
+export default ProductSliderCode;

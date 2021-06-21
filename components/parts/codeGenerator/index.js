@@ -5,6 +5,7 @@ import Flexi from '../../blocks/flexTiles/code';
 import CTA from '../../blocks/cta/code';
 import CTABlock from '../../blocks/cta_block/code';
 import Logos from '../../blocks/logos/code';
+import ProductSlider from '../../blocks/slider/code';
 
 import Modal from '../modal';
 
@@ -27,6 +28,8 @@ const CodeGenerator = ({ type, ...modalProps }) => {
 		Code = CTABlock;
 	} else if (type === `logos`) {
 		Code = Logos;
+	} else if (type === `slider`) {
+		Code = ProductSlider;
 	}
 
 	const content = renderToStaticMarkup(<Code {...{ data }} />)

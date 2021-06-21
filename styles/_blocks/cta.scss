@@ -3,6 +3,7 @@
 	position: relative;
 	margin-top: 12px;
 	padding: 3px 40px 0 14px;
+	border: 2px solid var.$primary;
 	background: var.$primary;
 	color: var.$white;
 	font-size: 1.2em;
@@ -25,6 +26,7 @@
 	}
 
 	&:hover {
+		border-color: var.$orange;
 		background: var.$orange;
 		color: var.$neutral;
 		text-decoration: none;
@@ -36,6 +38,7 @@
 
 	&[class*='background_'] {
 		&:hover {
+			border-color: var.$orange;
 			background: var.$orange;
 			color: var.$neutral;
 			text-decoration: none;
@@ -51,22 +54,27 @@
 	}
 
 	&.background_blue_dark {
+		border-color: var.$secondary;
 		background: var.$secondary;
 	}
 
 	&.background_blue_light {
+		border-color: var.$primary;
 		background: var.$primary;
 	}
 
 	&.background_grey_dark {
+		border-color: var.$grey_dark;
 		background: var.$grey_dark;
 	}
 
 	&.background_grey_medium {
+		border-color: var.$grey_mid;
 		background: var.$grey_mid;
 	}
 
 	&.background_grey_light {
+		border-color: var.$grey_light;
 		background: var.$grey_light;
 		color: var.$neutral;
 
@@ -76,12 +84,13 @@
 	}
 
 	&.background_gold {
+		border-color: var.$gold;
 		background: var.$gold;
 	}
 
 	&.background_white {
 		padding-right: 14px;
-		border: 2px solid var.$primary;
+		border-color: var.$primary;
 		background: var.$white;
 		color: var.$primary;
 
@@ -90,6 +99,7 @@
 		}
 
 		&:hover {
+			border-color: var.$primary;
 			background: var.$primary;
 			color: var.$white;
 		}

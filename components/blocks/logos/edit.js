@@ -12,7 +12,7 @@ import { colours } from '../../../_data/tileOptions';
 
 import styles from './logo.module.scss';
 
-const EditCTA = ({
+const EditLogo = ({
 	logo, link, setData, data, i, type
 }) => {
 	const [modal, openModal] = useState(false);
@@ -73,4 +73,4 @@ const EditCTA = ({
 	);
 };
 
-export default EditCTA;
+export default EditLogo;

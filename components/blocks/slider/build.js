@@ -3,40 +3,51 @@ import {
 } from "react";
 import Builder from '../../parts/builder';
 
-import Logo from './edit';
+import Product from './edit';
 
 import { addData } from '../../../utils/data';
 
-import styles from './logo.module.scss';
+import styles from './productSlider.module.scss';
 
-const Logos = ({ type }) => {
-	const [logos, setLogos] = useState([]);
+const ProductSlider = ({ type }) => {
+	const [products, setProducts] = useState([]);
 	const details = {
 		type,
-		setHook: setLogos
+		setHook: setProducts
 	};
-	const addCTA = () => {
-		const newLogos = [
-			...logos,
+	const addProduct = () => {
+		const newProducts = [
+			...products,
 			{
-				logo: `https://pacificautomation.com.au/content/files/images/Pacific%20Automation_rgb_no%20whitespace_web.png`
+				name: `Weidmuller 1469470000 - PRO ECO 72W 24V 3A`,
+				image: `https://pacificautomation.com.au/product/image/medium/1019302_0.jpg`,
+				cta: [
+					{
+						text: `Learn More`,
+						colour: `blue_light`
+					},
+					{
+						text: `Buy Now`,
+						colour: `white`
+					}
+				]
 			}
 		];
-		addData(newLogos, type);
-		setLogos(newLogos);
+		addData(newProducts, type);
+		setProducts(newProducts);
 	};
 
 	return (
 		<Builder {...details}>
 			<div className={styles.container}>
-				<ul className={`pa_logos`}>
-					{logos.map((logo, i) => (
-						<Logo
+				<ul className={`pa_products`}>
+					{products.map((product, i) => (
+						<Product
 							key={i}
 							{...{
-								...logo,
-								data: logos,
-								setData: setLogos,
+								...product,
+								data: products,
+								setData: setProducts,
 								i,
 								type
 							}}
@@ -44,10 +55,10 @@ const Logos = ({ type }) => {
 					))}
 
 				</ul>
-				<button className={styles.add} onClick={() => addCTA()}>Add Logo</button>
+				<button className={styles.add} onClick={() => addProduct()}>Add Product</button>
 			</div>
 		</Builder>
 	);
 };
 
-export default Logos;
+export default ProductSlider;

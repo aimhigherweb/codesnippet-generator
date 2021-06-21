@@ -18,10 +18,13 @@
 .container {
 	max-width: 1000px;
 	padding: 20px;
+	background: var.$grey_background;
 }
 
-.logo {
+.product {
 	position: relative;
+	align-self: stretch;
+	margin: 0;
 
 	&:hover, &:focus, &.focus-within {
 		.edit {
@@ -32,6 +35,8 @@
 
 .fields {
 	width: 100%;
+	max-height: calc(95vh - 80px);
+	overflow-y: auto;
 
 	h2 {
 		color: var.$secondary;

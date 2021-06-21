@@ -12,8 +12,6 @@ const parseLogos = (data) => {
 		});
 	}
 
-	console.log(logos);
-
 	return logos;
 };
 

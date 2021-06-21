@@ -1,5 +1,3 @@
-import { Fragment } from 'react';
-
 import CTA from '../cta/single';
 
 const Tile = ({

@@ -1,6 +1,6 @@
 import Logo from './single';
 
-const CTACode = ({ data }) => {
+const LogoCode = ({ data }) => {
 	const logos = data;
 
 	return (
@@ -12,4 +12,4 @@ const CTACode = ({ data }) => {
 	);
 };
 
-export default CTACode;
+export default LogoCode;

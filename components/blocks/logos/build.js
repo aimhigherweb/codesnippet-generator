@@ -15,7 +15,7 @@ const Logos = ({ type }) => {
 		type,
 		setHook: setLogos
 	};
-	const addCTA = () => {
+	const addLogo = () => {
 		const newLogos = [
 			...logos,
 			{
@@ -44,7 +44,7 @@ const Logos = ({ type }) => {
 					))}
 
 				</ul>
-				<button className={styles.add} onClick={() => addCTA()}>Add Logo</button>
+				<button className={styles.add} onClick={() => addLogo()}>Add Logo</button>
 			</div>
 		</Builder>
 	);
