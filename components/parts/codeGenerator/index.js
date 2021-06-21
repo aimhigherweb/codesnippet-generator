@@ -36,7 +36,12 @@ const CodeGenerator = ({ type, ...modalProps }) => {
 		.replace(
 			RegExp(process.env.NEXT_PUBLIC_GENERATOR_URL, `g`),
 			process.env.NEXT_PUBLIC_WEBSITE_URL
-		);
+		)
+		.replace(/&#x27;/g, `'`)
+		.replace(/&gt;/g, `>`)
+		.replace(/&lt;/g, `<`)
+		.replace(/&quot;/g, `"`)
+		.replace(/&amp;/g, `&`);
 
 	return (
 		<Modal {...modalProps}>

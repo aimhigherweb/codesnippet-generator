@@ -18,3 +18,8 @@
 	transform: translateX(50%);
 	background: var.$grey_background;
 }
+
+.sr-only {
+	position: absolute;
+	right: -200vw;
+}
