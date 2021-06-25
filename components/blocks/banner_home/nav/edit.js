@@ -50,7 +50,7 @@ const EditNav = ({
 				&& <Modal closeModal={openModal}>
 					<button className={styles.save} onClick={() => saveChanges()}>Save Changes</button>
 					<div className={styles.fields}>
-						<h2>Nav</h2>
+						<h2>Text</h2>
 						<Text
 							value={textValue}
 							onBlur={changeText}
