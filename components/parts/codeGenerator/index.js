@@ -6,6 +6,7 @@ import CTA from '../../blocks/cta/code';
 import CTABlock from '../../blocks/cta_block/code';
 import Logos from '../../blocks/logos/code';
 import ProductSlider from '../../blocks/slider/code';
+import HomeBanner from '../../blocks/banner_home/code';
 
 import Modal from '../modal';
 
@@ -30,6 +31,8 @@ const CodeGenerator = ({ type, ...modalProps }) => {
 		Code = Logos;
 	} else if (type === `slider`) {
 		Code = ProductSlider;
+	} else if (type === `banner_home`) {
+		Code = HomeBanner;
 	}
 
 	const content = renderToStaticMarkup(<Code {...{ data }} />)

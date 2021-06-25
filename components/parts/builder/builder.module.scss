@@ -6,6 +6,7 @@
 
 .content {
 	grid-column: 1 / -1;
-	justify-self: stretch;
+	align-self: start;
 	max-width: 100%;
+	justify-self: stretch;
 }

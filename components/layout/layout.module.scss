@@ -2,6 +2,8 @@
 	display: grid;
 	grid-gap: 20px;
 	grid-template-columns: 1fr auto;
+	grid-template-rows: auto 1fr;
+	align-content: center;
 	align-items: center;
 	padding: 20px 50px;
 	justify-items: start;

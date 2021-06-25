@@ -8,7 +8,7 @@ import { clearData, getData } from '../../../utils/data';
 import styles from './builder.module.scss';
 
 const Builder = ({
-	type, setHook, children
+	type, setHook, children, setData
 }) => {
 	const [modal, openModal] = useState(false);
 	const [paste, openPaste] = useState(false);
@@ -18,6 +18,10 @@ const Builder = ({
 		}
 
 		clearData(type);
+
+		if (setData) {
+			setData.forEach(({ type: t }) => clearData(t));
+		}
 	};
 
 	useEffect(() => {
@@ -25,6 +29,14 @@ const Builder = ({
 
 		if (setHook) {
 			setHook(data);
+		}
+
+		if (setData) {
+			setData.forEach(({ type: t, hook }) => {
+				const typeData = getData(t);
+
+				hook(typeData);
+			});
 		}
 	}, []);
 

@@ -1,0 +1,162 @@
+.pa_banner_home_container {
+	display: flex;
+	width: 100vw;
+	margin-left: -15px;
+}
+
+.pa_banner_home {
+	position: relative;
+	width: 100vw;
+	height: 100%;
+	max-height: 400px;
+	margin: 0;
+	padding: 0;
+	list-style: none;
+
+	img {
+		display: block;
+		width: 100%;
+		max-width: 100%;
+		height: auto;
+	}
+
+	li {
+		margin: 0;
+		padding: 0;
+		list-style: none;
+
+		&:not([data-slide='0']) {
+			img {
+				position: absolute;
+				z-index: -1;
+				top: 0;
+				right: 0;
+				bottom: 0;
+				left: 0;
+				object-position: center;
+				object-fit: cover;
+				height: 100%;
+			}
+		}
+	}
+
+	&.active {
+		li {
+			&[data-slide] {
+				opacity: 0;
+				pointer-events: none;
+
+				&.current {
+					opacity: 1;
+					pointer-events: auto;
+				}
+			}
+		}
+	}
+}
+
+.pa_banner_nav {
+	display: none;
+	flex: 1 0 auto;
+	align-self: stretch;
+	max-width: 300px;
+	height: 100%;
+	max-height: 400px;
+
+	ul {
+		display: flex;
+		display: flex;
+		flex-direction: column;
+		flex-direction: column;
+		justify-content: space-between;
+		justify-content: space-between;
+		width: 100%;
+		height: 100%;
+		margin: 0;
+		margin: 0;
+		padding: 0;
+		padding: 0;
+		list-style: none;
+		list-style: none;
+	}
+
+	li {
+		margin: 20px 0 0;
+		padding: 0;
+		list-style: none;
+	}
+
+	a {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		padding: 15px 25px;
+		background: var.$white;
+		color: var.$neutral;
+		font: var.$font_headings;
+		font-size: 1.5em;
+		font-weight: 700;
+		line-height: 1;
+		text-decoration: none;
+
+		.pa_nav_btn {
+			flex-shrink: 0;
+			margin-left: 20px;
+			padding: 5px;
+			background: var.$primary;
+			color: var.$white;
+			font-size: 0.6em;
+			font-weight: 400;
+			text-transform: uppercase;
+		}
+
+		&:hover {
+			background: var.$primary;
+			color: var.$white;
+			text-decoration: none;
+
+			.pa_nav_btn {
+				background: var.$white;
+				color: var.$primary;
+			}
+		}
+	}
+}
+
+@media(min-width: 640px) {
+	.pa_banner_home_container {
+		margin-left: -2vw;
+	}
+}
+
+@media(min-width: 50em) {
+	.pa_banner_home {
+		flex: 1 1 auto;
+		width: calc(100vw - 300px);
+		max-width: 800px;
+	}
+
+	.pa_banner_nav {
+		display: block;
+	}
+}
+
+@media(min-width: 1024px) {
+	.pa_banner_home_container {
+		margin-left: -4vw;
+	}
+}
+
+$max_width: (25000 / 23) * 1px;
+
+@media(min-width: $max_width) {
+	.pa_banner_home_container {
+		max-width: 1000px;
+		margin-left: calc(-1 * (50vw - 500px));
+		padding: 0 calc(50vw - 500px);
+	}
+
+	.pa_banner_home {
+		width: 700px;
+	}
+}

@@ -1,0 +1,75 @@
+.edit {
+	position: absolute;
+	z-index: 50;
+	right: 0;
+	opacity: 0;
+}
+
+.add {
+	margin: 50px 20px 0;
+}
+
+.save {
+	position: absolute;
+	top: 10px;
+	left: 10px;
+}
+
+.container {
+	display: flex;
+	max-width: 1200px;
+	outline: 1px dashed var.$grey_light;
+	outline-offset: 0;
+	background: var.$grey_background;
+}
+
+.banner, .nav {
+	position: relative;
+
+	&:hover, &:focus, &.focus-within {
+		.edit {
+			opacity: 1;
+		}
+	}
+}
+
+.banner {
+	width: 100%;
+
+	li:not([data-slide='0']) {
+		img {
+			position: static;
+			width: 100%;
+		}
+	}
+}
+
+.banners {
+	width: calc(100% - 300px);
+	overflow: visible;
+
+	ul {
+		max-width: 100%;
+		height: auto;
+		max-height: unset;
+	}
+}
+
+.navs {
+	flex: 1 1 auto;
+	width: 300px;
+
+	ul {
+		max-width: 100%;
+		height: auto;
+	}
+}
+
+.fields {
+	width: 100%;
+
+	h2 {
+		color: var.$secondary;
+		font-size: 1.2em;
+	}
+}

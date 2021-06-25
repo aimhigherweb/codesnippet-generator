@@ -23,6 +23,10 @@ const types = [
 		name: `Product Slider`,
 		id: `slider`
 	},
+	{
+		name: `Home Banner`,
+		id: `banner_home`
+	},
 ];
 
 export default types;
