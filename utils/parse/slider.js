@@ -37,6 +37,9 @@ const parseProduct = (data) => {
 			}
 		}
 	}
+
+	console.log(products)
+
 	return products;
 };
 

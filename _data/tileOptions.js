@@ -39,6 +39,10 @@ const container = [
 		value: `img_small`
 	},
 	{
+		label: `Small Tiles`,
+		value: `tile_small`
+	},
+	{
 		label: `Columns`,
 		value: `col`,
 		opts: [
@@ -74,6 +78,10 @@ const tile = [
 			{
 				value: `right`,
 				label: `Right`
+			},
+			{
+				value: `centre`,
+				label: `Centre`
 			}
 		]
 	},
@@ -103,20 +111,10 @@ const tile = [
 			}
 		]
 	},
-	// {
-	// 	value: `image_align`,
-	// 	label: `Image Align`,
-	// 	opts: [
-	// 		{
-	// 			value: `left`,
-	// 			label: `Left`
-	// 		},
-	// 		{
-	// 			value: `right`,
-	// 			label: `Right`
-	// 		}
-	// 	]
-	// },
+	{
+		label: `Small Images`,
+		value: `img_small`
+	},
 	{
 		value: `background`,
 		label: `Background Colour`,

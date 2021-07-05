@@ -63,7 +63,8 @@ const Builder = ({
 					{...{
 						type,
 						closeModal: openPaste,
-						setHook
+						setHook,
+						setData
 					}}
 				/>
 			)}

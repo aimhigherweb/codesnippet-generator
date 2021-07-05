@@ -44,6 +44,16 @@
 	}
 }
 
+.nav {
+	width: 100%;
+
+	&:first-child {
+		li {
+			margin-top: 0;
+		}
+	}
+}
+
 .banners {
 	width: calc(100% - 300px);
 	overflow: visible;

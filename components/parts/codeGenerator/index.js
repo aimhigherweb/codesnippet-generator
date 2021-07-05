@@ -5,8 +5,8 @@ import Flexi from '../../blocks/flexTiles/code';
 import CTA from '../../blocks/cta/code';
 import CTABlock from '../../blocks/cta_block/code';
 import Logos from '../../blocks/logos/code';
-import ProductSlider from '../../blocks/slider/code';
-import HomeBanner from '../../blocks/banner_home/code';
+import ProductSlider, { ProductSliderCodeScript } from '../../blocks/slider/code';
+import HomeBanner, { BannerCodeScript } from '../../blocks/banner_home/code';
 
 import Modal from '../modal';
 
@@ -17,7 +17,9 @@ import styles from './codeGenerator.module.scss';
 const CodeGenerator = ({ type, ...modalProps }) => {
 	const ref = useRef();
 	const data = getData(type);
-	let Code;
+	let Code,
+	 Script;
+	let script = ``;
 
 	if (type === `faq`) {
 		Code = FAQ;
@@ -31,24 +33,38 @@ const CodeGenerator = ({ type, ...modalProps }) => {
 		Code = Logos;
 	} else if (type === `slider`) {
 		Code = ProductSlider;
+		Script = ProductSliderCodeScript;
 	} else if (type === `banner_home`) {
 		Code = HomeBanner;
+		Script = BannerCodeScript;
 	}
 
 	const content = renderToStaticMarkup(<Code {...{ data }} />)
 		.replace(
 			RegExp(process.env.NEXT_PUBLIC_GENERATOR_URL, `g`),
 			process.env.NEXT_PUBLIC_WEBSITE_URL
-		)
-		.replace(/&#x27;/g, `'`)
-		.replace(/&gt;/g, `>`)
-		.replace(/&lt;/g, `<`)
-		.replace(/&quot;/g, `"`)
-		.replace(/&amp;/g, `&`);
+		);
+
+	console.log({ Script, script });
+
+	if (Script) {
+		script = renderToStaticMarkup(<Script {...{ data }} />)
+			.replace(
+				RegExp(process.env.NEXT_PUBLIC_GENERATOR_URL, `g`),
+				process.env.NEXT_PUBLIC_WEBSITE_URL
+			)
+			.replace(/&#x27;/g, `'`)
+			.replace(/&gt;/g, `>`)
+			.replace(/&lt;/g, `<`)
+			.replace(/&quot;/g, `"`)
+			.replace(/&amp;/g, `&`);
+	}
+
+	console.log({ Script, script });
 
 	return (
 		<Modal {...modalProps}>
-			<textarea className={styles.code} ref={ref} defaultValue={content}>
+			<textarea className={styles.code} ref={ref} defaultValue={`${content}${script}`}>
 			</textarea>
 		</Modal>
 	);

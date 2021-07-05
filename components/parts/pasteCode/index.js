@@ -8,10 +8,13 @@ import flexiTiles from '../../../utils/parse/tiles';
 import cta from '../../../utils/parse/cta';
 import logos from '../../../utils/parse/logos';
 import slider from '../../../utils/parse/slider';
+import banner from '../../../utils/parse/banner';
 
 import styles from './pasteCode.module.scss';
 
-const PasteCode = ({ type, setHook, ...modalProps }) => {
+const PasteCode = ({
+	type, setHook, setData, ...modalProps
+}) => {
 	const ref = useRef(null);
 	let parse = false;
 
@@ -25,6 +28,8 @@ const PasteCode = ({ type, setHook, ...modalProps }) => {
 		parse = logos;
 	} else if (type === `slider`) {
 		parse = slider;
+	} else if (type === `banner_home`) {
+		parse = banner;
 	}
 
 	const generateBlocks = () => {
@@ -35,8 +40,20 @@ const PasteCode = ({ type, setHook, ...modalProps }) => {
 
 		const data = parse(el);
 
-		setHook(data);
-		addData(data, type);
+		if (setHook) {
+			setHook(data);
+			addData(data, type);
+		}
+
+		if (setData) {
+			let i = 0;
+			setData.forEach(({ type: t, hook }) => {
+				hook(data[i]);
+				addData(data[i], t);
+				i++;
+			});
+		}
+
 		modalProps.closeModal(false);
 	};
 

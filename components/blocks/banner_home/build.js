@@ -57,7 +57,7 @@ const Banners = ({ type }) => {
 			<div className={styles.container}>
 				<div className={styles.banners}>
 					<ul className="pa_banner_home">
-						{banners.map((banner, i) => (
+						{banners?.map((banner, i) => (
 							<Banner
 								key={i}
 								{...{
@@ -74,7 +74,7 @@ const Banners = ({ type }) => {
 				</div>
 				<div className={`${styles.navs} pa_banner_nav`}>
 					<ul className="">
-						{navs.map((nav, i) => (
+						{navs?.map((nav, i) => (
 							<Link
 								key={i}
 								{...{

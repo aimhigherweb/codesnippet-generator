@@ -3,6 +3,7 @@ const Link = ({ text, link }) => (
 		<a
 			className={`pa_nav_link`}
 			href={link}
+			data-text={text}
 		>
 			{text}
 			<span className={`pa_nav_btn`}>Shop Now</span>

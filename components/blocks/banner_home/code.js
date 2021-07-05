@@ -24,9 +24,13 @@ const BannerCode = ({ data }) => {
 					</ul>
 				</nav>
 			</div>
-			<script>{`window.onload=(()=>{const e=document.querySelector(".pa_banner_home"),t=e.children.length;let c=0;const r=t=>{e.querySelectorAll("li.current").forEach(e=>e.classList.remove("current")),e.children[t].classList.add("current"),c=t+1,l()},l=()=>{setTimeout(()=>{r(c<t?c:c=0)},5e3)};e.classList.add("active"),r(c)});`}</script>
+
 		</Fragment>
 	);
 };
+
+export const BannerCodeScript = () => (
+	<script>{`window.onload=(()=>{const e=document.querySelector(".pa_banner_home"),t=e.children.length;let c=0;const r=t=>{e.querySelectorAll("li.current").forEach(e=>e.classList.remove("current")),e.children[t].classList.add("current"),c=t+1,l()},l=()=>{setTimeout(()=>{r(c<t?c:c=0)},5e3)};e.classList.add("active"),r(c)});`}</script>
+);
 
 export default BannerCode;

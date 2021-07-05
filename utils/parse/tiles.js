@@ -20,6 +20,8 @@ const parseTiles = (data) => {
 			const links = tile.querySelector(`[data-attribute='ctas']`)
 			let ctas = []
 
+			console.log(tile.querySelector(`[data-attribute='container']`).dataset)
+
 			if(links && links.children) {
 				for (const cta of links.children) {		
 					const button = cta.querySelector(`a`);
@@ -36,6 +38,8 @@ const parseTiles = (data) => {
 				}
 			}
 
+			
+
 			tiles.push({
 				heading,
 				content,
@@ -43,10 +47,12 @@ const parseTiles = (data) => {
 					url: image
 				},
 				cta: ctas,
-				options: JSON.parse(options)
+				options: options && JSON.parse(options)
 			})
 		}
 	}
+
+	console.log({flexi_options, tiles})
 
 	window.localStorage.setItem('flexi_options', flexi_options)
 
