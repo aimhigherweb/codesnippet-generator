@@ -9,10 +9,11 @@ const moduleExports = {
 	// your existing module.exports
 	sassOptions: {
 		prependData: `
-		@use "styles/_variables.scss" as var;
-		@use "styles/_mixins.scss";
-	`,
+			@use "styles/_variables.scss" as var;
+			@use "styles/_mixins.scss";
+		`,
 	},
+	target: `serverless`
 };
 
 const SentryWebpackPluginOptions = {
