@@ -11,7 +11,6 @@ const moduleExports = {
 		domains: [],
 	},
 	env: {},
-	target: `serverless`,
 	sassOptions: {
 		prependData: `
 			@use "styles/_variables.scss" as var;
