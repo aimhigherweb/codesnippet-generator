@@ -2,10 +2,14 @@ import { useState } from 'react';
 
 import Text from '../inputs/text';
 
+import { addData } from '../../../utils/data';
+
 import { colours } from '../../../_data/tileOptions';
 
+import styles from './ctaFields.module.scss';
+
 const CTAFields = ({
-	text, link, colour, i, change, ctas, setCTAs
+	text, link, colour, i, change, ctas, setCTAs, saveChanges
 }) => {
 	const [textValue, setText] = useState(text);
 	const [linkValue, setLink] = useState(link);
@@ -31,9 +35,26 @@ const CTAFields = ({
 		setCTAs(data);
 		change(data, `cta`);
 	};
+	const deleteCTA = () => {
+		const confirm = window.confirm(`Are you sure you want to delete this item?`);
+
+		if (!confirm) return;
+
+		const data = ctas;
+
+		console.log({ data });
+
+		data.splice(i, 1);
+
+		console.log({ data });
+
+		setCTAs(data);
+		change(data, `cta`);
+		saveChanges();
+	};
 
 	return (
-		<div>
+		<div className={styles.fields}>
 			<h3>Link {i + 1}</h3>
 			<h4>Text</h4>
 			<Text
@@ -68,6 +89,12 @@ const CTAFields = ({
 					</option>
 				))}
 			</select>
+			<button
+				className={styles.remove}
+				onClick={() => deleteCTA()}
+			>
+				Delete CTA
+			</button>
 		</div>
 	);
 };

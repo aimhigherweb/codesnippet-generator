@@ -124,7 +124,8 @@ const EditProduct = ({
 								i: j,
 								change: changeCTA,
 								ctas: ctasValue,
-								setCTAs
+								setCTAs,
+								saveChanges
 							}} />
 						))}
 						<button className={styles.addCTA} onClick={() => addCTA()}>Add CTA</button>

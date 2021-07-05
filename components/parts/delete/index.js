@@ -7,7 +7,7 @@ const DeleteButton = ({
 }) => {
 	console.log({ data, i, type });
 	const router = useRouter();
-	const deleteCTA = () => {
+	const deleteItem = () => {
 		const confirm = window.confirm(`Are you sure you want to delete this item?`);
 
 		if (!confirm) return;
@@ -24,7 +24,7 @@ const DeleteButton = ({
 	return (
 		<button
 			className={styles.remove}
-			onClick={() => deleteCTA()}
+			onClick={() => deleteItem()}
 		>
 			Delete Item
 		</button>

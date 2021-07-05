@@ -199,10 +199,13 @@ const EditTile = ({
 								<h2>Call to Action</h2>
 								{ctas?.map((cta, j) => (
 									<CTAFields key={j} {...{
-										...cta, i: j, change, ctas, setCTAs
+										...cta, i: j, change, ctas, setCTAs, saveChanges
 									}} />
 								))}
-								<button className={styles.addCTA} onClick={() => addCTA()}>Add CTA</button>
+								<button
+									className={styles.addCTA}
+									onClick={() => addCTA()}>Add CTA</button>
+
 							</Fragment>
 						}
 						<DeleteButton
