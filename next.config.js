@@ -6,11 +6,6 @@
 const { withSentryConfig } = require(`@sentry/nextjs`);
 
 const moduleExports = {
-	images: {
-		deviceSizes: [500, 1000, 2500, 3000],
-		domains: [],
-	},
-	env: {},
 	sassOptions: {
 		prependData: `
 			@use "styles/_variables.scss" as var;
