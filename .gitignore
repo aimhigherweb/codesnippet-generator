@@ -40,3 +40,4 @@ yarn-error.log*
 _data/templates
 *.key.json
 styles.css
+sentry.properties

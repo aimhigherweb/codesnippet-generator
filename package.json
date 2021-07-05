@@ -11,6 +11,7 @@
     "sass": "gulp sass"
   },
   "dependencies": {
+    "@sentry/nextjs": "^6.8.0",
     "gulp": "^4.0.2",
     "gulp-dart-sass": "^1.0.2",
     "next": "10.0.6",
