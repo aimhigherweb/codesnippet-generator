@@ -13,7 +13,7 @@ const moduleExports = {
 			@use "styles/_mixins.scss";
 		`,
 	},
-	target: `serverless`
+	target: `experimental-serverless-trace`
 };
 
 const SentryWebpackPluginOptions = {
