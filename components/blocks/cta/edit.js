@@ -4,6 +4,7 @@ import {
 import CTA from './single';
 import Text from '../../parts/inputs/text';
 import TextArea from '../../parts/inputs/textArea';
+import DeleteButton from '../../parts/delete';
 
 import { addData } from '../../../utils/data';
 
@@ -53,10 +54,12 @@ const EditCTA = ({
 			>
 				Edit
 			</button>
+
 			<CTA {...{ text: textValue, link: linkValue, colour: colourValue }} />
 			{modal
 				&& <Modal closeModal={openModal}>
 					<button className={styles.save} onClick={() => saveChanges()}>Save Changes</button>
+
 					<div className={styles.fields}>
 						<h2>Text</h2>
 						<Text
@@ -88,6 +91,15 @@ const EditCTA = ({
 								</option>
 							))}
 						</select>
+						<DeleteButton
+							{...{
+								data,
+								i,
+								type,
+								openModal,
+								modal
+							}}
+						/>
 					</div>
 				</Modal>
 			}

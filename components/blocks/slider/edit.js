@@ -12,6 +12,7 @@ import { colours } from '../../../_data/tileOptions';
 import styles from './productSlider.module.scss';
 
 import CTAFields from '../../parts/ctaFields';
+import DeleteButton from "../../parts/delete";
 
 const EditProduct = ({
 	image, name, code, cta, setData, data, i, type
@@ -62,6 +63,15 @@ const EditProduct = ({
 	};
 	const saveChanges = () => {
 		addData(data, type);
+		openModal(!modal);
+	};
+	const deleteProduct = (j) => {
+		const products = data;
+
+		products.splice(j, 1);
+
+		setData(products);
+		addData(products, type);
 		openModal(!modal);
 	};
 
@@ -118,6 +128,15 @@ const EditProduct = ({
 							}} />
 						))}
 						<button className={styles.addCTA} onClick={() => addCTA()}>Add CTA</button>
+						<DeleteButton
+							{...{
+								data,
+								i,
+								type,
+								openModal,
+								modal
+							}}
+						/>
 					</div>
 				</Modal>
 			}

@@ -10,6 +10,7 @@ import { addData } from '../../../utils/data';
 import Modal from '../../parts/modal';
 
 import styles from './faqs.module.scss';
+import DeleteButton from "../../parts/delete";
 
 const EditFAQ = ({
 	summary, content, setData, data, i, type
@@ -59,6 +60,15 @@ const EditFAQ = ({
 							onBlur={changeContent}
 							onChange={setContent}
 							hideToolbar={false}
+						/>
+						<DeleteButton
+							{...{
+								data,
+								i,
+								type,
+								openModal,
+								modal
+							}}
 						/>
 					</div>
 				</Modal>

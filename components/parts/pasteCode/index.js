@@ -1,5 +1,6 @@
 import { useRef } from "react";
 
+import { useRouter } from "next/router";
 import Modal from '../modal';
 
 import { addData } from '../../../utils/data';
@@ -15,6 +16,7 @@ import styles from './pasteCode.module.scss';
 const PasteCode = ({
 	type, setHook, setData, ...modalProps
 }) => {
+	const router = useRouter();
 	const ref = useRef(null);
 	let parse = false;
 
@@ -33,6 +35,10 @@ const PasteCode = ({
 	}
 
 	const generateBlocks = () => {
+		const confirm = window.confirm(`Are you sure you want to override the existing data on this page?`);
+
+		if (!confirm) return;
+
 		const code = ref.current.value;
 		const el = document.createElement(`div`);
 
@@ -55,9 +61,11 @@ const PasteCode = ({
 		}
 
 		modalProps.closeModal(false);
+
+		router.reload(window.location.pathname);
 	};
 
-	if (!parse) return <p>Something went wrong</p>;
+	if (!parse) return <Modal><p>Something went wrong</p></Modal>;
 
 	return (
 		<Modal {...modalProps}>

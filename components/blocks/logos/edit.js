@@ -11,6 +11,7 @@ import Modal from '../../parts/modal';
 import { colours } from '../../../_data/tileOptions';
 
 import styles from './logo.module.scss';
+import DeleteButton from "../../parts/delete";
 
 const EditLogo = ({
 	logo, link, setData, data, i, type
@@ -34,6 +35,15 @@ const EditLogo = ({
 	};
 	const saveChanges = () => {
 		addData(data, type);
+		openModal(!modal);
+	};
+	const deleteLogo = (j) => {
+		const logos = data;
+
+		logos.splice(j, 1);
+
+		setData(logos);
+		addData(logos, type);
 		openModal(!modal);
 	};
 
@@ -65,6 +75,15 @@ const EditLogo = ({
 							onChange={changeLink}
 							hideToolbar={true}
 							placeholder={`https://pacificautomation.com.au/`}
+						/>
+						<DeleteButton
+							{...{
+								data,
+								i,
+								type,
+								openModal,
+								modal
+							}}
 						/>
 					</div>
 				</Modal>

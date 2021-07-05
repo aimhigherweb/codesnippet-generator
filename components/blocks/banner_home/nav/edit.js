@@ -11,6 +11,7 @@ import Modal from '../../../parts/modal';
 import { colours } from '../../../../_data/tileOptions';
 
 import styles from '../banner.module.scss';
+import DeleteButton from "../../../parts/delete";
 
 const EditNav = ({
 	text, link, setData, data, i, type
@@ -63,6 +64,15 @@ const EditNav = ({
 							onBlur={changeLink}
 							onChange={changeLink}
 							hideToolbar={true}
+						/>
+						<DeleteButton
+							{...{
+								data,
+								i,
+								type: `${type}_navs`,
+								openModal,
+								modal
+							}}
 						/>
 					</div>
 				</Modal>

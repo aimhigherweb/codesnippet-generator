@@ -1,0 +1,14 @@
+.remove {
+	position: absolute;
+	right: 10px;
+	bottom: 10px;
+	margin-left: auto;
+	border-color: var.$red;
+	background: var.$white;
+	color: var.$red;
+
+	&:hover {
+		background: var.$red;
+		color: var.$white;
+	}
+}

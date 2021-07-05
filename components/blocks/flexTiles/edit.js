@@ -8,7 +8,7 @@ import { addData } from '../../../utils/data';
 import Modal from '../../parts/modal';
 import Text from '../../parts/inputs/text';
 import TextArea from '../../parts/inputs/textArea';
-
+import DeleteButton from "../../parts/delete";
 import { tile as tileOpts, colours } from '../../../_data/tileOptions';
 import styles from './tiles.module.scss';
 
@@ -205,6 +205,15 @@ const EditTile = ({
 								<button className={styles.addCTA} onClick={() => addCTA()}>Add CTA</button>
 							</Fragment>
 						}
+						<DeleteButton
+							{...{
+								data,
+								i,
+								type,
+								openModal,
+								modal
+							}}
+						/>
 					</div>
 				</Modal>
 			}

@@ -1,4 +1,5 @@
 import { useState, Fragment, useEffect } from "react";
+import { useRouter } from 'next/router';
 
 import CodeGenerator from '../codeGenerator';
 import PasteCode from '../pasteCode';
@@ -10,9 +11,14 @@ import styles from './builder.module.scss';
 const Builder = ({
 	type, setHook, children, setData
 }) => {
+	const router = useRouter();
 	const [modal, openModal] = useState(false);
 	const [paste, openPaste] = useState(false);
 	const clear = () => {
+		const confirm = window.confirm(`Are you sure you want to clear this data?`);
+
+		if (!confirm) return;
+
 		if (setHook) {
 			setHook([]);
 		}
@@ -22,6 +28,8 @@ const Builder = ({
 		if (setData) {
 			setData.forEach(({ type: t }) => clearData(t));
 		}
+
+		router.reload(window.location.pathname);
 	};
 
 	useEffect(() => {
