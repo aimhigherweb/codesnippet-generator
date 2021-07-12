@@ -63,6 +63,10 @@ const container = [
 				label: `4`
 			}
 		]
+	},
+	{
+		label: 'Grey Background',
+		value: 'bg_grey'
 	}
 ];
 

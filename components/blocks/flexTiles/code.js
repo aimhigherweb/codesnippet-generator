@@ -8,12 +8,16 @@ const FlexiTileCode = ({ data }) => {
 	let itemClass = ``;
 
 	Object.entries(flexi_options).forEach(([key, value]) => {
-		itemClass += ` ${key}`;
+		if (value) {
+			itemClass += ` ${key}`;
+		}
 
 		if (typeof value === `string`) {
 			itemClass += `_${value}`;
 		}
 	});
+
+	console.log(data);
 
 	return (
 		<div className={`pa_cols ${itemClass}`} data-options={JSON.stringify(flexi_options)}>

@@ -43,9 +43,7 @@ const parseTiles = (data) => {
 			tiles.push({
 				heading,
 				content,
-				image: {
-					url: image
-				},
+				image: image,
 				cta: ctas,
 				options: options && JSON.parse(options)
 			})

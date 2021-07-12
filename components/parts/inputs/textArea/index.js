@@ -13,7 +13,7 @@ const SunEditor = dynamic(() => import(`suneditor-react`), {
 });
 
 const TextArea = ({
-	value, onChange, section, onBlur, ...props
+	value, onChange, changeHook, section, onBlur, ...props
 }) => {
 	const [toolbar, toggleToolbar] = useState(false)
 	const editor = useRef();
@@ -29,8 +29,8 @@ const TextArea = ({
 				ref={editor}
 				getSunEditorInstance={getSunEditorInstance}
 				defaultValue={value}
-				onBlur={(e, editorContents) => onBlur(cleanContent(editorContents), section)}
-				onChange={(e) => onChange(cleanContent(e), section)}
+				onBlur={(e, editorContents) => onBlur(cleanContent(editorContents), section, changeHook)}
+				onChange={(e) => onChange(cleanContent(e), section, changeHook)}
 				setOptions={{
 					buttonList: buttonsFull,
 					colorList: colours,

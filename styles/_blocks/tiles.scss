@@ -10,6 +10,10 @@
 		margin-top: 5px;
 	}
 
+	&.bg_grey {
+		background: var.$grey_background;
+	}
+
 	*[data-attribute='container'] {
 		&.empty {
 			flex-basis: 0;

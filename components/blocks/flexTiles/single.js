@@ -8,7 +8,9 @@ const Tile = ({
 	const exists = (sections) => sections.some(((sect) => sect && sect !== `` && sect !== []));
 
 	Object.entries(options).forEach(([key, value]) => {
-		itemClass += ` ${key}`;
+		if (value) {
+			itemClass += ` ${key}`;
+		}
 
 		if (typeof value === `string`) {
 			itemClass += `_${value}`;
@@ -23,9 +25,9 @@ const Tile = ({
 		<Wrapper {...{
 			type, url, disableLink, itemClass
 		}}>
-			{exists([image?.url])
+			{exists([image])
 				&& <img
-					src={image.url}
+					src={image}
 					style={{ maxWidth: image.maxWidth }}
 					className={`feature`}
 					data-attribute="image"

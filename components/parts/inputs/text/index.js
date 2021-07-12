@@ -14,7 +14,7 @@ const SunEditor = dynamic(() => import(`suneditor-react`), {
 });
 
 const Text = ({
-	value, onChange, onBlur, section, className, ...props
+	value, onChange, onBlur, changeHook, section, className, ...props
 }) => {
 	const editor = useRef();
 	const getSunEditorInstance = (sunEditor) => {
@@ -30,8 +30,8 @@ const Text = ({
 				ref={editor}
 				getSunEditorInstance={getSunEditorInstance}
 				defaultValue={value}
-				onBlur={(e, editorContents) => onBlur(stripString(editorContents), section)}
-				onChange={(e) => onChange(stripString(e), section)}
+				onBlur={(e, editorContents) => onBlur(stripString(editorContents), section, changeHook)}
+				onChange={(e) => onChange(stripString(e), section, changeHook)}
 				setOptions={{
 					buttonList: buttonsSimple,
 				}}
