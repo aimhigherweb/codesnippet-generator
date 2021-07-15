@@ -4,7 +4,7 @@
 	align-items: stretch;
 	margin: 15px auto;
 
-	&.col_3, &.col_2, &.col_4 {
+	&.col_3, &.col_2, &.col_4 &.col_5 {
 
 		grid-template-columns: repeat(2, 1fr);
 	}
@@ -28,7 +28,7 @@
 			grid-template-columns: repeat(3, 1fr);
 		}
 
-		&.col_4 {
+		&.col_4, .col_5 {
 			grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
 		}
 
@@ -39,15 +39,11 @@
 				grid-column: 1 / -1;
 			}
 
-			&.width_half {
+			&.width_half, &.width_twothird, &.width_threefifth, &.width_twofifth {
 				grid-column: span 2;
 			}
 
-			&.width_twothird {
-				grid-column: span 2;
-			}
-
-			&.width_threequarter {
+			&.width_threequarter, &.width_fourfifth {
 				grid-column: span 3;
 			}
 		}
@@ -58,6 +54,20 @@
 	.pa_cols {
 		&.col_4 {
 			grid-template-columns: repeat(4, 1fr);
+		}
+
+		&.col_5 {
+			grid-template-columns: repeat(5, 1fr);
+		}
+
+		.pa_tile {
+			&.width_threefifth {
+				grid-column: span 3;
+			}
+
+			&.width_fourfifth {
+				grid-column: span 4;
+			}
 		}
 	}
 }

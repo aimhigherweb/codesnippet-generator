@@ -3,7 +3,7 @@ import {
 } from 'react';
 import dynamic from 'next/dynamic'
 
-import {buttonsFull, colours, formats, imageOptions, paragraphStyles} from '../../../../_data/editor'
+import {buttonsFull, colours, formats, imageOptions, paragraphStyles, textStyles} from '../../../../_data/editor'
 
 import styles from './textArea.module.scss'
 import cleanContent from '../../../../utils/cleanContent';
@@ -13,7 +13,7 @@ const SunEditor = dynamic(() => import(`suneditor-react`), {
 });
 
 const TextArea = ({
-	value, onChange, changeHook, section, onBlur, ...props
+	value, onChange, changeHook, section, onBlur, options, ...props
 }) => {
 	const [toolbar, toggleToolbar] = useState(false)
 	const editor = useRef();
@@ -36,7 +36,9 @@ const TextArea = ({
 					colorList: colours,
 					formats,
 					paragraphStyles,
-					...imageOptions
+					textStyles,
+					...imageOptions,
+					...options
 				}}
 				{...props}
 			/>

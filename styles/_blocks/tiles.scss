@@ -101,6 +101,14 @@
 		}
 	}
 
+	h3 {
+		&[data-attribute='heading'] {
+			strong {
+				font-weight: 400;
+			}
+		}
+	}
+
 	.pa_tile {
 		position: relative;
 		flex-grow: 1;
@@ -127,6 +135,32 @@
 				flex-basis: 60%;
 			}
 		}
+
+		&.cta_full {
+			.pa_cta {
+				li {
+					width: 100%;
+					margin-right: 0;
+					margin-left: 0;
+				}
+
+				.pa_btn {
+					width: 100%;
+				}
+			}
+		}
+
+		&.content_align_top {
+			align-items: flex-start;
+		}
+
+		&.content_align_bottom {
+			align-items: flex-end;
+		}
+
+		&.content_align_centre {
+			align-items: center;
+		}
 	}
 
 	.content {
@@ -137,9 +171,26 @@
 				opacity: 1;
 			}
 		}
+
+		h1 {
+			font-size: 2em;
+			line-height: 1.2;
+
+			&:first-child {
+				margin-top: 0;
+			}
+
+			&:last-child {
+				margin-bottom: 0;
+			}
+		}
+
+		img {
+			margin: 20px auto;
+		}
 	}
 
-	img.feature {
+	img {
 		display: block;
 		width: 100%;
 		max-height: 400px;
@@ -195,8 +246,8 @@
 			justify-content: space-between;
 
 			img {
-				width: 50px;
-				max-width: 50px;
+				width: 150px;
+				max-width: 150px;
 				margin: 0 10px 0 0;
 				object-fit: center;
 			}
@@ -228,6 +279,27 @@
 					margin-left: 10px;
 				}
 			}
+
+			&.content_align_top {
+				align-items: flex-start;
+			}
+
+			&.content_align_bottom {
+				align-items: flex-end;
+			}
+
+			&.content_align_centre {
+				align-items: center;
+			}
+		}
+
+		&.img_small {
+			.pa_tile {
+				img {
+					width: 50px;
+					max-width: 50px;
+				}
+			}
 		}
 	}
 
@@ -255,9 +327,28 @@
 	line-height: 1.3;
 }
 
+.__se__pa_uppercase {
+	text-transform: uppercase;
+}
+
+.__se__pa_callout_heading {
+	display: flex;
+	align-items: center;
+
+	&:before {
+		content: '';
+		width: 0;
+		height: 0;
+		margin-right: 0.5ch;
+		border-width: 0.5em 0 0.5em 0.5em;
+		border-style: solid;
+		border-color: transparent transparent transparent var.$primary;
+	}
+}
+
 @media (min-width: 40em) {
 	.pa_cols {
-		&.col_3, &.col_2, &.col_4 {
+		&.col_3, &.col_2, &.col_4, &.col_5 {
 			.pa_tile {
 				flex-basis: 40%;
 				flex-grow: 1;
@@ -273,7 +364,7 @@
 				flex-basis: 100%;
 			}
 
-			img.feature {
+			img {
 				max-height: 450px;
 			}
 		}
@@ -299,13 +390,13 @@
 			}
 		}
 
-		&.col_4 {
+		&.col_4, &.col_5 {
 			.pa_tile {
 				flex-basis: calc(25% - 20px);
 			}
 		}
 
-		&.col_3, &.col_4 {
+		&.col_3, &.col_4, &.col_5 {
 			justify-content: flex-start;
 
 			.pa_tile {
@@ -362,8 +453,7 @@
 				flex-basis: 100%;
 			}
 
-			&.width_half {
-				display: flex;
+			&.width_half, &.width_threefifth, &.width_twofifth {
 				flex-basis: calc(50% - 20px);
 				flex-grow: 0;
 				flex-shrink: 0;
@@ -376,7 +466,7 @@
 				flex-shrink: 0;
 			}
 
-			&.width_quarter {
+			&.width_quarter, .width_onefifth {
 				display: block;
 				flex-basis: calc(25% - 20px);
 				flex-grow: 0;
@@ -387,14 +477,14 @@
 				}
 			}
 
-			&.width_threequarter {
+			&.width_threequarter, .width_fourfifth {
 				display: flex;
 				flex-basis: calc(75% - 20px);
 				flex-grow: 1;
 				flex-shrink: 0;
 			}
 
-			&.width_full, &.width_twothird, &.width_half, &.width_threequarter {
+			&.width_full, &.width_twothird, &.width_half, &.width_threequarter, &.width_fourfifth {
 				> * {
 					margin: 0 10px;
 
@@ -423,6 +513,13 @@
 				margin: 0 10px;
 			}
 
+			.content {
+				img {
+					margin-top: 20px;
+					margin-bottom: 20px;
+				}
+			}
+
 			img {
 				width: 50%;
 				margin: 0;
@@ -436,15 +533,15 @@
 					width: 30%;
 				}
 
-				&.width_third, &.width_quarter {
+				&.width_third, &.width_quarter, &.width_onefifth, &.width_twofifth {
 					img {
 						width: 100%;
 					}
 				}
 			}
 
-			&.col_4, &.col_3 {
-				.pa_tile:not(.width_full):not(.width_half):not(.width_twothird):not(.width_threequarter) {
+			&.col_4, &.col_5, &.col_3 {
+				.pa_tile:not(.width_full):not(.width_half):not(.width_twothird):not(.width_threequarter):not(.width_threefifth):not(.width_fourfifth) {
 					img {
 						width: 100%;
 					}
@@ -457,7 +554,16 @@
 				display: flex;
 
 				img {
-					width: 50px;
+					width: 150px;
+				}
+			}
+
+			&.img_small {
+				.pa_tile {
+					img {
+						width: 50px;
+						max-width: 50px;
+					}
 				}
 			}
 		}
@@ -488,6 +594,16 @@
 		&.tile_small {
 			.pa_tile {
 				padding: 10px;
+			}
+		}
+	}
+}
+
+@media(min-width: 70em ) {
+	.pa_cols {
+		.pa_tile {
+			&.width_half, &.width_threefifth, &.width_twofifth {
+				display: flex;
 			}
 		}
 	}

@@ -14,6 +14,8 @@ import styles from './tiles.module.scss';
 
 import CTAFields from '../../parts/ctaFields';
 
+import {formats} from '../../../_data/editor'
+
 const EditTile = ({
 	tile, setData, data, i, type, tileOptions = {}
 }) => {
@@ -167,6 +169,12 @@ const EditTile = ({
 							section="content"
 							hideToolbar={false}
 							placeholder={`Content`}
+							options={{
+								formats: [
+									...formats,
+									'h1'
+								]
+							}}
 						/>
 						{options.link
 							&& <Fragment>

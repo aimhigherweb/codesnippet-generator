@@ -2,6 +2,7 @@ const buttonsFull = [[
 	`undo`,
 	`redo`,
 	`formatBlock`,
+	'textStyle',
 	`bold`,
 	`underline`,
 	`italic`,
@@ -9,12 +10,14 @@ const buttonsFull = [[
 	`horizontalRule`,
 	`list`,
 	`link`,
-	`image`
+	`image`,
+	
 ]];
 
 const buttonsSimple = [[
 	`bold`,
 	`italic`,
+	'textStyle'
 ]];
 
 const colours = [
@@ -40,8 +43,27 @@ const formats = [
 		name: `Leading Paragraph`,
 		command: `free`,
 		class: `__se__format__free_pa_lead`
+	},
+	{
+		tag: `span`,
+		name: `Uppercase`,
+		command: `free`,
+		class: `__se__format__free_pa_uppercase`
 	}
 ];
+
+const textStyles = [
+	{
+		name: 'Uppercase',
+		class: '__se__pa_uppercase',
+		tag: 'span'
+	},
+	{
+		name: 'Callout Heading',
+		class: '__se__pa_callout_heading',
+		tag: 'span'
+	}
+]
 
 const paragraphStyles = [];
 
@@ -57,5 +79,6 @@ module.exports = {
 	formats,
 	imageOptions,
 	paragraphStyles,
-	buttonsSimple
+	buttonsSimple,
+	textStyles
 };

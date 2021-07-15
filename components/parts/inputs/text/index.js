@@ -7,7 +7,7 @@ import "suneditor/dist/css/suneditor.min.css";
 import styles from './text.module.scss'
 import cleanContent from '../../../../utils/cleanContent';
 
-import {buttonsSimple} from '../../../../_data/editor'
+import {buttonsSimple, textStyles} from '../../../../_data/editor'
 
 const SunEditor = dynamic(() => import(`suneditor-react`), {
 	ssr: false,
@@ -34,6 +34,7 @@ const Text = ({
 				onChange={(e) => onChange(stripString(e), section, changeHook)}
 				setOptions={{
 					buttonList: buttonsSimple,
+					textStyles
 				}}
 				{...props}
 			/>

@@ -61,6 +61,10 @@ const container = [
 			{
 				value: 4,
 				label: `4`
+			},
+			{
+				value: 5,
+				label: '5'
 			}
 		]
 	},
@@ -90,12 +94,34 @@ const tile = [
 		]
 	},
 	{
+		value: `content_align`,
+		label: `Vertical Align`,
+		opts: [
+			{
+				value: `top`,
+				label: `Top`
+			},
+			{
+				value: `bottom`,
+				label: `Bottom`
+			},
+			{
+				value: `centre`,
+				label: `Centre`
+			}
+		]
+	},
+	{
 		value: `link`,
 		label: `Tile Link`
 	},
 	{
 		value: `cta`,
 		label: `Call to Action`
+	},
+	{
+		value: 'cta_full',
+		label: 'Full Width CTA'
 	},
 	{
 		value: `image`,
@@ -152,6 +178,22 @@ const tile = [
 				value: `threequarter`,
 				label: `3/4`
 			},
+			{
+				value: 'onefifth',
+				label: '1/5'
+			},
+			{
+				value: 'twofifth',
+				label: '2/5'
+			},
+			{
+				value: 'threefifth',
+				label: '3/5'
+			},
+			{
+				value: 'fourfifth',
+				label: '4/5'
+			}
 		]
 	}
 ];

@@ -41,7 +41,7 @@ const Tile = ({
 				>
 					{exists([heading]) && <h3 data-attribute="heading" dangerouslySetInnerHTML={{ __html: heading }} />}
 					{exists([content]) && <div data-attribute="content" dangerouslySetInnerHTML={{ __html: content }} />}
-					{(exists([cta]) && cta !== [])
+					{(exists([cta]) && cta !== [] && cta.length !== 0)
 					&& <ul className="pa_cta" data-attribute="ctas">
 						{cta.map((link, i) => (
 							<CTA {...link} key={i} />
