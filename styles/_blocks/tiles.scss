@@ -424,6 +424,10 @@
 			}
 		}
 
+		&.col_5 {
+			min-width: 140px;
+		}
+
 		.pa_tile {
 			display: flex;
 			align-items: center;
