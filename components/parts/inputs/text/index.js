@@ -21,7 +21,7 @@ const Text = ({
 		editor.current = sunEditor;
 	};
 	const stripString = (content) => {
-		return cleanContent(content).replace(/<p>/g, '').replace(/<\/p>/g, '')
+		return cleanContent(content).replace(/<(p|h3|h2|h1|h4)>/g, '').replace(/<\/(p|h3|h2|h1|h4)>/g, '')
 	}
 
 	return (

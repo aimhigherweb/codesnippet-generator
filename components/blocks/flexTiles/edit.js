@@ -64,7 +64,7 @@ const EditTile = ({
 			image,
 			url,
 			cta: ctas,
-			tileOptions: options,
+			options: options,
 			[section]: editorContents
 		};
 
@@ -75,6 +75,8 @@ const EditTile = ({
 		if(changeHook) {
 			changeHook(editorContents)
 		}
+
+		console.log(content)
 
 		setData(tiles);
 	};

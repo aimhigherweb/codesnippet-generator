@@ -28,7 +28,6 @@ const Tile = ({
 			{exists([image])
 				&& <img
 					src={image}
-					style={{ maxWidth: image.maxWidth }}
 					className={`feature`}
 					data-attribute="image"
 				/>
