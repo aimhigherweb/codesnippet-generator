@@ -17,13 +17,13 @@ const parseTiles = (data) => {
 			const content = tile.querySelector(`[data-attribute='content']`)?.innerHTML
 			const image = tile.querySelector(`[data-attribute='image']`)?.src
 			const options = tile.querySelector(`[data-attribute='container']`)?.dataset.options || `{}`
+			const url = tile.querySelector(`[data-attribute='tile-link'`)?.href
 			const links = tile.querySelector(`[data-attribute='ctas']`)
 			let ctas = []
 
-			console.log({options, raw: tile.querySelector(`[data-attribute='container']`)?.dataset.options})
-
-
 			if(links && links.children) {
+				console.log({links, children: links.children})
+
 				for (const cta of links.children) {		
 					const button = cta.querySelector(`a`);
 			
@@ -44,6 +44,7 @@ const parseTiles = (data) => {
 				content,
 				image: image,
 				cta: ctas,
+				url,
 				options: options && JSON.parse(options)
 			}
 

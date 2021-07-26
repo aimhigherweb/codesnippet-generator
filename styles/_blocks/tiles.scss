@@ -150,6 +150,7 @@
 
 				.pa_btn {
 					width: 100%;
+					text-align: center;
 				}
 			}
 		}
@@ -191,6 +192,17 @@
 
 		img {
 			margin: 20px auto;
+		}
+	}
+
+	.pa_tile_link {
+		&:before {
+			content: '';
+			position: absolute;
+			top: 0;
+			right: 0;
+			bottom: 0;
+			left: 0;
 		}
 	}
 
@@ -242,10 +254,11 @@
 		}
 	}
 
-	&.tile_small {
+	&.tile_small, &.tile_small[class*='col_'] {
 		.pa_tile {
 			display: flex;
 			flex-grow: 1;
+			flex-wrap: nowrap;
 			align-items: center;
 			justify-content: space-between;
 
@@ -258,6 +271,7 @@
 
 			.content {
 				flex-grow: 1;
+				width: 50%;
 				margin: 0;
 			}
 

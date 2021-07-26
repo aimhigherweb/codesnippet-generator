@@ -4,7 +4,6 @@ const Tile = ({
 	heading, content, image, cta, url, options = {}, children, disableLink
 }) => {
 	let itemClass = ``;
-	let type = ``;
 	const exists = (sections) => sections.some(((sect) => sect && sect !== `` && sect !== []));
 
 	Object.entries(options).forEach(([key, value]) => {
@@ -17,14 +16,8 @@ const Tile = ({
 		}
 	});
 
-	if (url) {
-		type = `link`;
-	}
-
 	return (
-		<Wrapper {...{
-			type, url, disableLink, itemClass
-		}}>
+		<div className={`${itemClass} pa_tile`} data-options={JSON.stringify(options)}>
 			{exists([image])
 				&& <img
 					src={image}
@@ -32,6 +25,7 @@ const Tile = ({
 					data-attribute="image"
 				/>
 			}
+			{url && <a href={!disableLink && url} className={`pa_tile_link`} data-attribute="tile-link" ><span className="sr-only">Click here</span></a>}
 			{exists([heading, content, cta])
 				&& <div
 					className={`content`}
@@ -50,24 +44,6 @@ const Tile = ({
 
 				</div>
 			}
-			{children}
-		</Wrapper>
-	);
-};
-
-const Wrapper = ({
-	type, url, children, disableLink, itemClass, options
-}) => {
-	if (type === `link`) {
-		return (
-			<a href={!disableLink && url} className={`${itemClass} pa_tile`} data-options={JSON.stringify(options)}>
-				{children}
-			</a>
-		);
-	}
-
-	return (
-		<div className={`${itemClass} pa_tile`} data-options={JSON.stringify(options)}>
 			{children}
 		</div>
 	);
