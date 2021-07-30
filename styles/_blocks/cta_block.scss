@@ -14,18 +14,6 @@
 	line-height: 1.2;
 	text-align: center;
 
-	&:before {
-		content: '';
-		position: absolute;
-		z-index: -1;
-		top: 0;
-		bottom: 0;
-		left: 50%;
-		width: 100vw;
-		transform: translateX(-50%);
-		background-color: inherit;
-	}
-
 	&.background_blue_dark, &.background_grey_dark, &.background_grey_medium, &.background_gold {
 		color: var.$white;
 	}
@@ -174,7 +162,7 @@ $max_width: (25000 / 23) * 1px;
 
 @media(min-width: $max_width) {
 	.cta_block {
-		margin-left: calc(-1 * (50vw - 500px));
-		padding: 40px calc(50vw - 500px);
+		max-width: 1000px;
+		margin: 15px auto;
 	}
 }
