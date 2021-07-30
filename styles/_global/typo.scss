@@ -98,15 +98,16 @@ nav {
 
 button  {
 	padding: 10px;
-	border: 2px solid var.$secondary;
+	border: 2px solid var.$primary;
 	border-radius: 0;
-	background: var.$secondary;
+	background: var.$primary;
 	color: var.$white;
 	font-weight: 600;
 
 	&:hover {
-		background: var.$white;
-		color: var.$secondary;
+		border-color: var.$orange;
+		background: var.$orange;
+		color: var.$white;
 	}
 }
 

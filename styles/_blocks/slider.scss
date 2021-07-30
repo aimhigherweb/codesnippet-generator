@@ -33,7 +33,6 @@
 		align-content: center;
 		width: 270px;
 		margin: 0 10px;
-		padding: 0;
 		padding: 20px;
 		list-style-type: none;
 		border: 2px solid var.$grey_light;
@@ -92,7 +91,7 @@
 
 	.next {
 		button {
-			right: -50px;
+			right: -20px;
 		}
 
 		svg {
@@ -102,7 +101,7 @@
 
 	.previous {
 		button {
-			left: -50px;
+			left: -20px;
 		}
 
 		svg {
@@ -116,24 +115,42 @@
 		top: calc(50% - 25px);
 		padding: 20px 0;
 		border-color: transparent;
+		opacity: 0.5;
 		background: none;
 		color: var.$grey_dark;
 
 		&:hover {
-			background: var.$secondary;
-			color: var.$white;
+			opacity: 1;
 		}
 	}
 
 	svg {
 		width: auto;
-		height: 50px;
+		height: 20px;
 		fill: none;
+
+		path {
+			stroke-width: 1px;
+		}
 	}
 }
 
 @media(min-width: 60em) {
 	.pa_products {
 		padding: 20px 0;
+	}
+
+	.slider_controls {
+		.next {
+			button {
+				right: -30px;
+			}
+		}
+
+		.previous {
+			button {
+				left: -30px;
+			}
+		}
 	}
 }

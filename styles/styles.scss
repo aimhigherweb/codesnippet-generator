@@ -20,11 +20,9 @@
 }
 
 .sr-only {
-	position: absolute;
-	right: -200vw;
-}
-
-html {
-	max-width: 100vw;
-	overflow-x: hidden;
+	width: 0;
+	height: 0;
+	opacity: 0;
+	font-size: 0;
+	pointer-events: none;
 }

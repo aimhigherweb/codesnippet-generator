@@ -28,11 +28,11 @@
 	&:hover {
 		border-color: var.$orange;
 		background: var.$orange;
-		color: var.$neutral;
+		color: var.$white;
 		text-decoration: none;
 
 		&:after {
-			filter: invert(100%);
+			filter: none;
 		}
 	}
 
@@ -40,11 +40,11 @@
 		&:hover {
 			border-color: var.$orange;
 			background: var.$orange;
-			color: var.$neutral;
+			color: var.$white;
 			text-decoration: none;
 
 			&:after {
-				filter: invert(100%);
+				filter: none;
 			}
 		}
 	}
@@ -89,19 +89,12 @@
 	}
 
 	&.background_white {
-		padding-right: 14px;
 		border-color: var.$primary;
 		background: var.$white;
 		color: var.$primary;
 
 		&:after {
-			content: normal;
-		}
-
-		&:hover {
-			border-color: var.$primary;
-			background: var.$primary;
-			color: var.$white;
+			filter: invert(100%);
 		}
 	}
 }
