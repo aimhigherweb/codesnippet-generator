@@ -11,7 +11,24 @@ const BannerCode = ({ data }) => {
 	return (
 		<Fragment>
 			<div className="pa_banner_home_container">
+
 				<ul className="pa_banner_home">
+					<li class="controls">
+						<ul id={`bannerControls`} className="banner_controls">
+							<li className="previous">
+								<button data-direction="backwards">
+									<svg viewBox="0 0 8 5"><path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth=".2" d="M7 4L3.75.5.5 4"/></svg>
+									<span className="sr-only">Previous</span>
+								</button>
+							</li>
+							<li className="next">
+								<button data-direction="forwards">
+									<svg viewBox="0 0 8 5"><path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth=".2" d="M7 4L3.75.5.5 4"/></svg>
+									<span className="sr-only">Previous</span>
+								</button>
+							</li>
+						</ul>
+					</li>
 					{banners.map((banner, i) => (
 						<Banner {...{ ...banner, i }} key={i} />
 					))}
@@ -30,7 +47,7 @@ const BannerCode = ({ data }) => {
 };
 
 export const BannerCodeScript = () => (
-	<script>{`window.onload=(()=>{const e=document.querySelector(".pa_banner_home"),t=e.children.length;let c=0;const r=t=>{e.querySelectorAll("li.current").forEach(e=>e.classList.remove("current")),e.children[t].classList.add("current"),c=t+1,l()},l=()=>{setTimeout(()=>{r(c<t?c:c=0)},5e3)};e.classList.add("active"),r(c)});`}</script>
+	<script>{`const banner=document.querySelector(".pa_banner_home"),controls=document.querySelector(".banner_controls");let autoPlay;const changeSlide=(e,t)=>{banner.querySelectorAll("li.current").forEach(e=>{e.classList.remove("current")}),e.classList.add("current"),t&&autoSlide()},autoSlide=()=>{autoPlay=setTimeout(()=>{const e=banner.querySelector("li.current"),t=e.nextElementSibling;changeSlide(t?e.nextElementSibling:banner.querySelector("li[data-slide]"),!0)},1e4)},navigateSlide=e=>{const t=banner.querySelector("li.current"),n=t.nextElementSibling,r=t.previousElementSibling;"forwards"==e?changeSlide(n||banner.querySelector("li[data-slide]")):r&&!r.classList.contains("controls")?changeSlide(r):changeSlide(banner.lastElementChild)};window.onload=(()=>{banner.querySelector("li.current")||banner.querySelector("li[data-slide]").classList.add("current"),banner.addEventListener("mouseenter",()=>{clearTimeout(autoPlay)}),banner.addEventListener("mouseout",()=>{autoSlide()}),controls.addEventListener("mouseenter",()=>{clearTimeout(autoPlay)}),controls.addEventListener("mouseout",()=>{autoSlide()}),banner.classList.add("active"),autoSlide()}),controls.querySelectorAll("button").forEach(e=>{e.addEventListener("click",e=>{let t=e.target;"svg"==t.tagName&&(t=t.parentElement),navigateSlide(t.dataset.direction)})});`}</script>
 );
 
 export default BannerCode;

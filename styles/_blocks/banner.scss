@@ -65,6 +65,78 @@
 			}
 		}
 	}
+
+	&:hover {
+		.controls {
+			button {
+				opacity: 0.5;
+				background: var.$white;
+			}
+		}
+	}
+
+	.controls {
+		display: none;
+		position: absolute;
+		z-index: 50;
+		top: 50%;
+		right: 0;
+		left: 0;
+		margin: 0;
+		padding: 0;
+		list-style: none;
+
+		.next {
+			button {
+				right: 10px;
+			}
+
+			svg {
+				transform: rotate(90deg);
+			}
+		}
+
+		.previous {
+			button {
+				left: 10px;
+			}
+
+			svg {
+				transform: rotate(-90deg);
+			}
+		}
+
+		button {
+			display: flex;
+			position: absolute;
+			top: calc(50% - 25px);
+			align-items: center;
+			justify-content: center;
+			width: 40px;
+			height: 40px;
+			padding: 0;
+			border-radius: 50%;
+			border-color: transparent;
+			opacity: 0;
+			background: none;
+			color: var.$grey_dark;
+
+			&:hover {
+				opacity: 1;
+				background: var.$white;
+			}
+		}
+
+		svg {
+			width: auto;
+			height: 10px;
+			fill: none;
+
+			path {
+				stroke-width: 1px;
+			}
+		}
+	}
 }
 
 .pa_banner_nav {
@@ -148,6 +220,10 @@
 		flex: 1 1 auto;
 		width: calc(100vw - 300px);
 		max-width: 800px;
+
+		.controls {
+			display: block;
+		}
 	}
 
 	.pa_banner_home_container {
