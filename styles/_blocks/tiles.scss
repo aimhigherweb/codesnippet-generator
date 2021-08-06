@@ -191,6 +191,10 @@
 		img {
 			margin: 20px auto;
 		}
+
+		&:empty {
+			margin: 0 !important;
+		}
 	}
 
 	.pa_tile_link {
@@ -225,6 +229,10 @@
 					}
 				}
 			}
+		}
+
+		&.image_block {
+			margin: 0 !important;
 		}
 	}
 

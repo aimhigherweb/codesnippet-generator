@@ -4,7 +4,7 @@ const Tile = ({
 	heading, content, image, cta, url, options = {}, children, disableLink
 }) => {
 	let itemClass = ``;
-	const exists = (sections) => sections.some(((sect) => sect && sect !== `` && sect !== []));
+	const exists = (sections) => sections.some(((sect) => sect && sect !== `` && sect.length !== 0));
 
 	Object.entries(options).forEach(([key, value]) => {
 		if (value) {
@@ -21,7 +21,7 @@ const Tile = ({
 			{exists([image])
 				&& <img
 					src={image}
-					className={`feature`}
+					className={`feature ${!exists([heading, content, cta]) && `image_block`}`}
 					data-attribute="image"
 				/>
 			}
