@@ -49,7 +49,7 @@ const formats = [
 		name: `Uppercase`,
 		command: `free`,
 		class: `__se__format__free_pa_uppercase`
-	}
+	},
 ];
 
 const textStyles = [
@@ -61,6 +61,11 @@ const textStyles = [
 	{
 		name: 'Callout Heading',
 		class: '__se__pa_callout_heading',
+		tag: 'span'
+	},
+	{
+		name: 'Embed Script',
+		class: '__se__pa_embed_script',
 		tag: 'span'
 	}
 ]
