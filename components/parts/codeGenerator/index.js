@@ -17,6 +17,7 @@ import styles from './codeGenerator.module.scss';
 const CodeGenerator = ({ type, ...modalProps }) => {
 	const ref = useRef();
 	const data = getData(type);
+	const scriptWrap = RegExp(/<span class="__se__pa_embed_script">(((=|-|\w| |"|:|\/|\\|\.|&|​| |;)*))<\/span>/, `gim`);
 	let Code,
 	 Script;
 	let script = ``;
@@ -41,18 +42,28 @@ const CodeGenerator = ({ type, ...modalProps }) => {
 
 	const content = renderToStaticMarkup(<Code {...{ data }} />)
 		.replace(
-			RegExp(process.env.NEXT_PUBLIC_GENERATOR_URL, `g`),
+			RegExp(process.env.NEXT_PUBLIC_GENERATOR_URL, `gi`),
 			process.env.NEXT_PUBLIC_WEBSITE_URL
 		)
-		.replace(/<span class="__se__pa_embed_script">(&lt;script((=|-|\w| |"|:|\/|\.)*)\&gt;((=|-|\w| |"|:|\/|\.)*)&lt;\/script&gt;)<\/span>/gi, (match, scriptTag, attributes) => scriptTag.replace(
-			RegExp(process.env.NEXT_PUBLIC_GENERATOR_URL, `g`),
-			process.env.NEXT_PUBLIC_WEBSITE_URL
-		)
-			.replace(/&#x27;/g, `'`)
-			.replace(/&gt;/g, `>`)
-			.replace(/&lt;/g, `<`)
-			.replace(/&quot;/g, `"`)
-			.replace(/&amp;/g, `&`));
+		.replace(scriptWrap, (match, scriptTag, attributes) => {
+			console.log({
+				match, scriptTag, attributes
+			});
+
+			const embedScript = match.replace(
+				RegExp(process.env.NEXT_PUBLIC_GENERATOR_URL, `g`),
+				process.env.NEXT_PUBLIC_WEBSITE_URL
+			)
+				.replace(/&#x27;/g, `'`)
+				.replace(/&gt;/g, `>`)
+				.replace(/&lt;/g, `<`)
+				.replace(/&quot;/g, `"`)
+				.replace(/&amp;/g, `&`);
+
+			console.log({ embedScript });
+
+			return embedScript;
+		});
 
 	if (Script) {
 		script = renderToStaticMarkup(<Script {...{ data }} />)
