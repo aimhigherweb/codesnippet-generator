@@ -9,8 +9,8 @@ const parseProduct = (data) => {
 	const navItems = container.querySelector(`.pa_banner_nav ul`);
 
 	for (const banner of bannerItems?.children) {
-		const link = banner.querySelector(`a`).href;
-		const image = banner.querySelector(`img`).src;
+		const link = banner.querySelector(`a`)?.href;
+		const image = banner.querySelector(`img`)?.src;
 
 		banners.push({
 			image,
@@ -19,8 +19,8 @@ const parseProduct = (data) => {
 	}
 
 	for (const navItem of navItems?.children) {
-		const link = navItem.querySelector(`a`).href;
-		const { text } = navItem.querySelector(`a`).dataset;
+		const link = navItem.querySelector(`a`)?.href;
+		const { text } = navItem.querySelector(`a`)?.dataset;
 
 		console.log(navItem.querySelector(`a`));
 
