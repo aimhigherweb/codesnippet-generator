@@ -35,6 +35,8 @@
 
 .banner {
 	width: 100%;
+	min-height: 100px;
+	background: var.$secondary;
 
 	li:not([data-slide='0']) {
 		img {
