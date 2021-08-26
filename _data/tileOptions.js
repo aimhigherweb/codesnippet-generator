@@ -69,6 +69,11 @@ const container = [
 		]
 	},
 	{
+		value: `background`,
+		label: `Background Colour`,
+		opts: colours
+	},
+	{
 		label: 'Grey Background',
 		value: 'bg_grey'
 	}
