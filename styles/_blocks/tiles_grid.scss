@@ -22,6 +22,12 @@
 	.pa_cols {
 		&.col_2 {
 			grid-template-columns: repeat(2, 1fr);
+
+			.pa_tile {
+				&.width_half, &.width_twothird, &.width_threefifth, &.width_twofifth {
+					grid-column: span 1;
+				}
+			}
 		}
 
 		&.col_3 {
