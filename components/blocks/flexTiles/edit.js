@@ -23,6 +23,7 @@ const EditTile = ({
 	const [heading, setHeading] = useState(tile?.heading || '')
 	const [content, setContent] = useState(tile?.content || '')
 	const [image, setImage] = useState(tile?.image || '')
+	const [imageSize, setImageSize] = useState(tile?.imageSize || '250px')
 	const [url, setUrl] = useState(tile?.url || '')
 	const [ctas, setCTAs] = useState(tile?.cta || []);
 	const [options, setOptions] = useState(tileOptions);
@@ -62,6 +63,7 @@ const EditTile = ({
 			heading,
 			content,
 			image,
+			imageSize,
 			url,
 			cta: ctas,
 			options: options,
@@ -102,6 +104,7 @@ const EditTile = ({
 					heading,
 					content,
 					image,
+					imageSize,
 					url,
 					cta: ctas,
 					options,
@@ -205,6 +208,17 @@ const EditTile = ({
 									section={'image'}
 									hideToolbar={true}
 									placeholder={`https://pacificautomation.com.au/content/files/images/PA_office.jpg`}
+								/>
+								<h2>Image Max Height (optional)</h2>
+								<Text
+									className={` `}
+									value={imageSize}
+									onBlur={change}
+									onChange={change}
+									changeHook={setImageSize}
+									section={'imageSize'}
+									hideToolbar={true}
+									placeholder={`250px`}
 								/>
 							</Fragment>
 						}

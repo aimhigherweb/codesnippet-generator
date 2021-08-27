@@ -16,6 +16,10 @@ const parseTiles = (data) => {
 			const heading = tile.querySelector(`[data-attribute='heading']`)?.innerHTML
 			const content = tile.querySelector(`[data-attribute='content']`)?.innerHTML
 			const image = tile.querySelector(`[data-attribute='image']`)?.src
+			const imageSize = tile.querySelector(`[data-attribute='image']`)
+
+			console.log(imageSize);
+			
 			const options = tile.querySelector(`[data-attribute='container']`)?.dataset.options || `{}`
 			const url = tile.querySelector(`[data-attribute='tile-link'`)?.href
 			const links = tile.querySelector(`[data-attribute='ctas']`)
@@ -43,6 +47,7 @@ const parseTiles = (data) => {
 				heading,
 				content,
 				image: image,
+				imageSize: imageSize,
 				cta: ctas,
 				url,
 				options: options && JSON.parse(options)

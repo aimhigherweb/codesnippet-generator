@@ -141,6 +141,10 @@ const tile = [
 				label: `Left`
 			},
 			{
+				value: `centre`,
+				label: `Centre`
+			},
+			{
 				value: `right`,
 				label: `Right`
 			}

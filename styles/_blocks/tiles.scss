@@ -73,6 +73,11 @@
 		display: block;
 		margin: 10px;
 
+		&.feature {
+			margin-right: auto;
+			margin-left: auto;
+		}
+
 		&.start {
 			align-self: flex-start;
 			margin-top: 20px;
@@ -88,6 +93,11 @@
 
 		&.text_align_centre {
 			text-align: center;
+
+			img {
+				margin-right: auto;
+				margin-left: auto;
+			}
 
 			.pa_cta {
 				justify-content: center;
@@ -259,7 +269,7 @@
 		width: 100%;
 		max-height: 400px;
 		margin: 0 auto;
-		object-fit: cover;
+		object-fit: contain;
 		object-position: center;
 
 		&.image_position_right {
@@ -279,6 +289,7 @@
 
 		&.image_block {
 			margin: 0 !important;
+			object-fit: cover;
 		}
 	}
 
@@ -437,6 +448,10 @@
 			img {
 				max-height: 450px;
 			}
+
+			&.image_position_center {
+
+			}
 		}
 	}
 }
@@ -508,6 +523,7 @@
 
 		.pa_tile {
 			display: flex;
+			align-content: center;
 			align-items: center;
 
 			&.text_align_centre {
@@ -518,6 +534,19 @@
 			&.text_align_right {
 				justify-content: flex-end;
 				text-align: right;
+
+				img {
+					object-position: right center;
+				}
+			}
+
+			&.text_align_left {
+				justify-content: flex-end;
+				text-align: right;
+
+				img {
+					object-position: left center;
+				}
 			}
 
 			&.img_small {
@@ -675,7 +704,7 @@
 @media(min-width: 60em) {
 	.pa_cols {
 		.pa_tile {
-			min-width: 220px;
+			min-width: unset;
 			padding: 20px;
 
 			> * {

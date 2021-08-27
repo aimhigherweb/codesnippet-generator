@@ -1,7 +1,7 @@
 import CTA from '../cta/single';
 
 const Tile = ({
-	heading, content, image, cta, url, options = {}, children, disableLink
+	heading, content, image, imageSize, cta, url, options = {}, children, disableLink
 }) => {
 	let itemClass = ``;
 	const exists = (sections) => sections.some(((sect) => sect && sect !== `` && sect.length !== 0));
@@ -23,6 +23,7 @@ const Tile = ({
 					src={image}
 					className={`feature ${!exists([heading, content, cta]) && `image_block`}`}
 					data-attribute="image"
+					style={{ maxHeight: imageSize }}
 				/>
 			}
 			{url && <a href={!disableLink && url} className={`pa_tile_link`} data-attribute="tile-link" ><span className="sr-only">Click here</span></a>}
