@@ -162,6 +162,10 @@
 				font-weight: 400;
 			}
 		}
+
+		&:not(:last-child) {
+			margin-bottom: 1em;
+		}
 	}
 
 	.pa_tile {
