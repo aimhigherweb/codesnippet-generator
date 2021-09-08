@@ -12,7 +12,8 @@ import styles from './index.module.scss';
 
 const IndexPage = () => {
 	const [type, setType] = useState(`faq`);
-	const switchType = (codeType) => {
+	const switchType = (codeType, e) => {
+		console.log({ e });
 		console.log(`switching type ${codeType}`);
 		setType(codeType);
 
@@ -38,7 +39,8 @@ const IndexPage = () => {
 								name="code_type"
 								type="radio"
 								defaultChecked={opt.id === type}
-								onChange={() => switchType(opt.id)}
+								onChange={(e) => switchType(opt.id, e)}
+								onClick={(e) => switchType(opt.id, e)}
 							/>
 							<label
 								htmlFor={opt.id}
