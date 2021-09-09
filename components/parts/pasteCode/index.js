@@ -42,6 +42,8 @@ const PasteCode = ({
 		const code = ref.current.value;
 		const el = document.createElement(`div`);
 
+		console.log({ code });
+
 		el.innerHTML = code;
 
 		const data = parse(el);
