@@ -2,7 +2,7 @@ const parseCTA = (data) => {
 	const ctas = [];
 
 	// eslint-disable-next-line no-restricted-syntax
-	for (cta of data.children[0].children) {
+	for (const cta of data.children[0].children) {
 		// console.log(cta);
 
 		const button = cta.querySelector(`a`);
