@@ -30,6 +30,10 @@ summary, .faq_summary {
 	font-size: 1.2em;
 	list-style: none;
 
+	&::-webkit-details-marker, &::marker {
+		display: none
+	}
+
 	&:hover, &:focus {
 		outline: none;
 	}
@@ -68,5 +72,10 @@ summary, .faq_summary {
 		&:last-child {
 			margin-bottom: 0;
 		}
+	}
+
+	iframe {
+		max-width: 100%;
+		height: auto;
 	}
 }
