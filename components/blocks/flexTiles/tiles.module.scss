@@ -10,6 +10,11 @@
 		outline: 1px dashed var.$grey_light;
 		outline-offset: 0;
 	}
+
+	*[class*="__se__pa_embed_script"] {
+		white-space: pre-wrap;
+		word-break: break-all;
+	}
 }
 
 .add {

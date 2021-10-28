@@ -17,7 +17,10 @@ import styles from './codeGenerator.module.scss';
 const CodeGenerator = ({ type, ...modalProps }) => {
 	const ref = useRef();
 	const data = getData(type);
-	const scriptWrap = RegExp(/<span class="__se__pa_embed_script">(((=|-|\w| |"|:|\/|\\|\.|&|​| |;)*))<\/span>/, `gim`);
+	const scriptWrap = RegExp(
+		/<span class=(?:\\)*"__se__pa_embed_script(?:\\)*">(((=|-|\w| |"|:|\/|\\|\.|&|​| |;|\?|\!|%|\s)*))<\/span>/, 
+		`gim`
+	)
 	let Code,
 	 Script;
 	let script = ``;
@@ -44,6 +47,10 @@ const CodeGenerator = ({ type, ...modalProps }) => {
 		.replace(
 			RegExp(process.env.NEXT_PUBLIC_GENERATOR_URL, `gi`),
 			process.env.NEXT_PUBLIC_WEBSITE_URL
+		)
+		.replace(
+			RegExp(/\"/, `g`),
+			'"'
 		)
 		.replace(scriptWrap, (match, scriptTag, attributes) => {
 			console.log({
