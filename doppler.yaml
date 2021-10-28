@@ -1,0 +1,3 @@
+setup:
+        project: pa-codegenerator
+        config: dev

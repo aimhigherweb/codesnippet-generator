@@ -5,7 +5,7 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "npm run dev",
+    "start": "doppler run -- npm run dev",
     "export": "next export",
     "clean": "rm -rf .next",
     "sass": "gulp sass"

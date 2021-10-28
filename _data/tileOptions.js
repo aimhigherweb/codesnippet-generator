@@ -133,6 +133,20 @@ const tile = [
 		label: `Image`
 	},
 	{
+		value: `image_order`,
+		label: `Image Order`,
+		opts: [
+			{
+				value: `before`,
+				label: `Before`
+			},
+			{
+				value: `after`,
+				label: `After`
+			},
+		]
+	},
+	{
 		value: `image_position`,
 		label: `Image Position`,
 		opts: [
@@ -147,12 +161,20 @@ const tile = [
 			{
 				value: `right`,
 				label: `Right`
+			},
+			{
+				value: `full`,
+				label: `Full`
 			}
 		]
 	},
 	{
 		label: `Small Images`,
 		value: `img_small`
+	},
+	{
+		label: `Full Image Tile`,
+		value: `img_tile`
 	},
 	{
 		value: `background`,
